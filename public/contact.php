@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/../config/app.php';
+$token = generateCsrfToken();
 // public/contact.php
 ?>
 <!DOCTYPE html>
@@ -18,6 +20,14 @@
   <section class="hero-background">
     <div class="container contact-section">
       <h2>Επικοινωνία</h2>
+      <?php if(!empty($_SESSION['success'])): ?>
+        <p style="color:green;"><?= htmlspecialchars($_SESSION['success']) ?></p>
+        <?php unset($_SESSION['success']); ?>
+      <?php endif; ?>
+      <?php if(!empty($_SESSION['error'])): ?>
+        <p style="color:red;"><?= htmlspecialchars($_SESSION['error']) ?></p>
+        <?php unset($_SESSION['error']); ?>
+      <?php endif; ?>
 
       <div class="contact-grid">
         <!-- Αριστερή στήλη: Στοιχεία Εταιρείας -->
@@ -49,8 +59,7 @@
         <!-- Δεξιά στήλη: Φόρμα Επικοινωνίας -->
         <div class="contact-form-wrapper">
           <form class="contact-form" method="post" action="send_message.php">
-            <!-- CSRF token (εφόσον έχεις αντίστοιχο helper) -->
-            <!-- <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>"> -->
+            <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>">
 
             <div class="form-group">
               <label for="name">Όνομα:</label>

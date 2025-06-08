@@ -22,7 +22,7 @@ class UsersController {
         requireRole('secretary');
 
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/user_create.php';
+        include __DIR__ . '/../../Views/user_create.php';
     }
 
     /**
