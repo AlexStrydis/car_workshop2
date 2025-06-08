@@ -1,9 +1,8 @@
 <?php
 // public/index.php
-require __DIR__ . '/../config/lang.php';
 ?>
 <!DOCTYPE html>
-<html lang="<?= $lang ?>">
+<html lang="el">
 <head>
   <meta charset="UTF-8" />
   <title>Car Workshop | Αρχική</title>
@@ -38,13 +37,14 @@ require __DIR__ . '/../config/lang.php';
   ==============================-->
   <section class="hero-section hero-background">
     <div class="hero-content container">
-      <h2 class="hero-title"><?= t('index.tagline') ?></h2>
+      <h2 class="hero-title">Βρες τον καλύτερο μηχανικό για το αυτοκίνητό σου</h2>
       <p class="hero-subtitle">
-        <?= t('index.subtitle') ?>
+        Εξειδικευμένες υπηρεσίες service & καθαρισμού, αξιόπιστα ανταλλακτικά
+        και προσωπική εξυπηρέτηση.
       </p>
       <div class="hero-cta">
-        <a href="register.php" class="btn-register"><?= t('index.register_now') ?></a>
-        <a href="login.php" class="btn-login"><?= t('index.login') ?></a>
+        <a href="register.php" class="btn-register">Εγγραφή Τώρα</a>
+        <a href="login.php" class="btn-login">Login</a>
       </div>
     </div>
   </section>
@@ -54,14 +54,17 @@ require __DIR__ . '/../config/lang.php';
   ==============================-->
   <section class="about-section hero-background">
     <div class="container">
-      <h2><?= t('index.about_title') ?></h2>
+      <h2>Για εμάς</h2>
       <p class="lead">
-        <?= t('index.about_text1') ?>
+        Στο Car Workshop, πάνω από 10 χρόνια εμπειρίας στην επισκευή και την
+        συντήρηση αυτοκινήτων. Είμαστε ΑΣΕ πιστοποιημένοι μηχανικοί που
+        νοιαζόμαστε πραγματικά για την ασφάλειά σας στο δρόμο. Κάθε όχημα
+        αντιμετωπίζεται σαν να ήταν δικό μας.
       </p>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">🛠️</div>
-          <h3><?= t('index.feature.mechanics') ?></h3>
+          <h3>Έμπειροι Μηχανικοί</h3>
           <p>
             Όλοι οι μηχανικοί μας είναι ASE-Certified και εκπαιδευμένοι στις
             τελευταίες τεχνολογίες.
@@ -69,14 +72,14 @@ require __DIR__ . '/../config/lang.php';
         </div>
         <div class="feature-card">
           <div class="feature-icon">⏱️</div>
-          <h3><?= t('index.feature.quick') ?></h3>
+          <h3>Γρήγορη Εξυπηρέτηση</h3>
           <p>
             Στόχος μας η άμεση επίλυση, χωρίς να θυσιάζουμε την ποιότητα.
           </p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">💯</div>
-          <h3><?= t('index.feature.guarantee') ?></h3>
+          <h3>Εγγύηση Εργασίας</h3>
           <p>
             Όλες οι εργασίες μας συνοδεύονται από 1 έτος / 10.000χλμ εγγύηση.
           </p>
@@ -90,7 +93,7 @@ require __DIR__ . '/../config/lang.php';
   ==============================-->
   <section class="services-section hero-background">
     <div class="container">
-      <h2><?= t('index.services_title') ?></h2>
+      <h2>Οι Υπηρεσίες μας</h2>
       <p class="lead">
         Καλύπτουμε οποιαδήποτε ανάγκη συντήρησης ή επισκευής αυτοκινήτου, από
         αλλαγή λαδιών έως και πλήρη ανακατασκευή κινητήρα.
@@ -122,7 +125,7 @@ require __DIR__ . '/../config/lang.php';
         </div>
       </div>
       <div class="text-center mt-10">
-        <a href="services.php" class="btn-primary"><?= t('index.services_link') ?></a>
+        <a href="services.php" class="btn-primary">Δες Όλες τις Υπηρεσίες</a>
       </div>
     </div>
   </section>

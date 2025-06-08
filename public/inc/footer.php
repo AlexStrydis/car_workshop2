@@ -1,11 +1,10 @@
 <?php
 // public/inc/footer.php
-require_once __DIR__ . '/../../config/lang.php';
 ?>
 <section class="site-footer hero-background">
     <div class="container footer-container">
       <div class="footer-col">
-        <h4><?= t('footer.contact') ?></h4>
+        <h4>Επικοινωνία</h4>
         <p>
           📍 Οδός Γοργύρας, Κτήριο Λυμπέρη, Νέο Καρλόβασι<br />
           📞 Κλήση: 2273082200<br />
@@ -15,16 +14,16 @@ require_once __DIR__ . '/../../config/lang.php';
         <p>08:00–16:00</p>
       </div>
       <div class="footer-col">
-        <h4><?= t('footer.quick_links') ?></h4>
+        <h4>Γρήγοροι Σύνδεσμοι</h4>
         <ul>
-          <li><a href="index.php"><?= t('nav.home') ?></a></li>
-          <li><a href="about.php"><?= t('nav.about') ?></a></li>
-          <li><a href="services.php"><?= t('nav.services') ?></a></li>
-          <li><a href="contact.php"><?= t('nav.contact') ?></a></li>
+          <li><a href="index.php">Αρχική</a></li>
+          <li><a href="about.php">Σχετικά</a></li>
+          <li><a href="services.php">Υπηρεσίες</a></li>
+          <li><a href="contact.php">Επικοινωνία</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4><?= t('footer.follow_us') ?></h4>
+        <h4>Ακολούθησε Μας</h4>
         <ul>
           <li><a href="#">Facebook</a></li>
           <li><a href="#">Instagram</a></li>
@@ -33,6 +32,6 @@ require_once __DIR__ . '/../../config/lang.php';
       </div>
     </div>
     <div class="footer-bottom text-center">
-      <?= t('footer.all_rights') ?>
+      &copy; 2025 Car Workshop – All Rights Reserved.
     </div>
   </section>

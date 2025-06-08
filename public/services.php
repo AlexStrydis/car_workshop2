@@ -1,12 +1,11 @@
 <?php
 // public/services.php
-require_once '../config/lang.php';
 ?>
 <!DOCTYPE html>
-<html lang="<?= $lang ?>">
+<html lang="el">
 <head>
   <meta charset="UTF-8" />
-  <title>Car Workshop | <?= t('nav.services') ?></title>
+  <title>Car Workshop | Υπηρεσίες</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Κοινό CSS -->
   <link rel="stylesheet" href="css/style.css" />
@@ -75,7 +74,7 @@ require_once '../config/lang.php';
   <!-- Services Section -->
   <section class="hero-background">
     <div class="container services-section" style="background-color: rgba(0, 0, 0, 0.8);">
-      <h2 style="color: #f1c40f; text-align: center; margin-bottom: 15px;"><?= t('services.title') ?></h2>
+      <h2 style="color: #f1c40f; text-align: center; margin-bottom: 15px;">Οι Υπηρεσίες μας</h2>
       <p class="lead" style="color: #ffffff; margin-bottom: 15px;">
         Καλύπτουμε οποιαδήποτε ανάγκη συντήρησης ή επισκευής αυτοκινήτου, από αλλαγή λαδιών έως και πλήρη ανακατασκευή κινητήρα.
       </p>

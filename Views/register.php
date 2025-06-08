@@ -1,12 +1,10 @@
-
 <?php
 require_once '../config/app.php';
 $token = generateCsrfToken();
-require_once '../config/lang.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="<?= $lang ?>">
+<html lang="el">
 <head>
   <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
@@ -27,9 +25,7 @@ require_once '../config/lang.php';
 
   <section class="hero-background">
     <div class="register-container" style="background-color: rgba(0, 0, 0, 0.8); padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); width: 100%; max-width: 400px; margin-bottom: 20px;">
-      <h2 class="register-title" style="color: #f1c40f; text-align: center; margin-bottom: 20px;">
-        <?= t('nav.register') ?>
-      </h2>
+      <h2 class="register-title" style="color: #f1c40f; text-align: center; margin-bottom: 20px;">Εγγραφή</h2>
       <form method="post" action="register.php" style="display: flex; flex-direction: column; gap: 15px;">
         <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>">
 
@@ -205,20 +201,14 @@ require_once '../config/lang.php';
           <?php endif; ?>
         </div>
 
-        <button type="submit" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">
-          <?= t('nav.register') ?>
-        </button>
+        <button type="submit" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">Εγγραφή</button>
       </form>
 
       <!-- Adjusting login prompt with white text and smaller button -->
       <div class="navigation-buttons" style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
-        <a href="../public/index.php" class="btn-secondary" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">
-          <?= t('nav.home') ?>
-        </a>
+        <a href="../public/index.php" class="btn-secondary" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">Πίσω στην Αρχική</a>
         <p style="color: #ffffff; margin-top: 10px;">Έχεις ήδη λογαριασμό; Κάνε σύνδεση τώρα</p>
-        <a href="../public/login.php" class="btn-primary" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">
-          <?= t('nav.login') ?>
-        </a>
+        <a href="../public/login.php" class="btn-primary" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">Σύνδεση</a>
       </div>
     </div>
   </section>
