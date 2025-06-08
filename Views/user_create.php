@@ -82,20 +82,24 @@ $token = generateCsrfToken();
   <script>
     const extra = document.getElementById('extra');
     const roleSelect = document.getElementById('role');
+    const oldTaxId = <?= json_encode($_SESSION['old']['tax_id'] ?? '') ?>;
+    const oldAddress = <?= json_encode($_SESSION['old']['address'] ?? '') ?>;
+    const oldSpecialty = <?= json_encode($_SESSION['old']['specialty'] ?? '') ?>;
+
     function updateExtraFields() {
       extra.innerHTML = '';
       if (roleSelect.value === 'customer') {
         extra.innerHTML = `
           <label style="color: #ffffff; margin-bottom: 15px;">Tax ID:
-            <input name="tax_id" type="text" pattern="\\d{9}" title="Ακριβώς 9 ψηφία." required value="${<?= json_encode($_SESSION['old']['tax_id'] ?? '') ?>}" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+            <input name="tax_id" type="text" pattern="\\d{9}" title="Ακριβώς 9 ψηφία." required value="${oldTaxId}" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
           </label>
           <label style="color: #ffffff; margin-bottom: 15px;">Address:
-            <input name="address" type="text" minlength="1" required value="${<?= json_encode($_SESSION['old']['address'] ?? '') ?>}" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+            <input name="address" type="text" minlength="1" required value="${oldAddress}" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
           </label>`;
       } else if (roleSelect.value === 'mechanic') {
         extra.innerHTML = `
           <label style="color: #ffffff; margin-bottom: 15px;">Specialty:
-            <input name="specialty" type="text" minlength="1" required value="${<?= json_encode($_SESSION['old']['specialty'] ?? '') ?>}" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+            <input name="specialty" type="text" minlength="1" required value="${oldSpecialty}" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
           </label>`;
       }
     }

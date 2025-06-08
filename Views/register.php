@@ -216,6 +216,9 @@ $token = generateCsrfToken();
   <script>
     const extra = document.getElementById('extra');
     const roleSelect = document.getElementById('role');
+    const oldTaxId = <?= json_encode($_SESSION['old']['tax_id'] ?? '') ?>;
+    const oldAddress = <?= json_encode($_SESSION['old']['address'] ?? '') ?>;
+    const oldSpecialty = <?= json_encode($_SESSION['old']['specialty'] ?? '') ?>;
 
     function updateExtraFields() {
       extra.innerHTML = '';
@@ -229,7 +232,7 @@ $token = generateCsrfToken();
               pattern="\\d{9}"
               title="Ακριβώς 9 ψηφία."
               required
-              value="${<?= json_encode($_SESSION['old']['tax_id'] ?? '') ?>}"
+              value="${oldTaxId}"
               style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
           </label>
           <label style="color: #ffffff; margin-bottom: 15px;">
@@ -239,7 +242,7 @@ $token = generateCsrfToken();
               type="text"
               minlength="1"
               required
-              value="${<?= json_encode($_SESSION['old']['address'] ?? '') ?>}"
+              value="${oldAddress}"
               style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
           </label>
         `;
@@ -252,7 +255,7 @@ $token = generateCsrfToken();
               type="text"
               minlength="1"
               required
-              value="${<?= json_encode($_SESSION['old']['specialty'] ?? '') ?>}"
+              value="${oldSpecialty}"
               style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
           </label>
         `;
