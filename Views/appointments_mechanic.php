@@ -40,7 +40,7 @@
               <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>">
               <input type="hidden" name="id" value="<?= $a['id'] ?>">
               <select name="status">
-                <?php foreach(['IN_PROGRESS','COMPLETED','NO_SHOW'] as $s): ?>
+                <?php foreach(['IN_PROGRESS','COMPLETED','CANCELLED'] as $s): ?>
                   <option value="<?= $s ?>"><?= $s ?></option>
                 <?php endforeach; ?>
               </select>
