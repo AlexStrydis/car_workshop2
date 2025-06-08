@@ -19,7 +19,7 @@ class User {
             INSERT INTO `user`
               (username, password, first_name, last_name, identity_number, role, is_active)
             VALUES
-              (:username, :password, :first_name, :last_name, :identity_number, :role, 0)
+              (:username, :password, :first_name, :last_name, :identity_number, :role, :is_active)
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
@@ -29,6 +29,7 @@ class User {
             ':last_name'       => $data['last_name'],
             ':identity_number' => $data['identity_number'],
             ':role'            => $data['role'],
+            ':is_active'       => isset($data['is_active']) ? (int)$data['is_active'] : 0,
         ]);
         return (int)$this->pdo->lastInsertId();
     }

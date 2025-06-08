@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
-  <title>Appointments</title>
+  <title>Ραντεβού</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Appointments</h1>
+  <?php include __DIR__ . '/../public/inc/header.php'; ?>
+  <section class="hero-background">
+    <div class="container">
+      <h1>Ραντεβού</h1>
 
   <?php if (!empty($_SESSION['success'])): ?>
     <p style="color:green"><?= htmlspecialchars($_SESSION['success']) ?></p>
@@ -18,9 +21,9 @@
     <?php unset($_SESSION['error']); ?>
   <?php endif; ?>
 
-  <p>
-    <a href="dashboard.php">Dashboard</a>
-  </p>
+      <p>
+        <a href="dashboard.php">Dashboard</a>
+      </p>
 
   <!-- ------------------------ -->
   <!-- Link για Export σε CSV -->
@@ -39,7 +42,7 @@
   <!-- Φόρμα φίλτρων -->
   <!-- (Μπορείτε να την αφαιρέσετε αν δεν την χρειάζεστε,
        αλλά θεωρώ ότι βοηθάει τον χρήστη να φιλτράρει πριν εξάγει) -->
-  <form method="get" action="appointments.php">
+      <form method="get" action="appointments.php" class="filter-form">
     <label>From:
       <input
         type="date"
@@ -90,7 +93,7 @@
   </form>
   <br>
 
-  <table border="1" cellpadding="5">
+      <table class="data-table">
     <tr>
       <th>ID</th>
       <th>Date</th>
@@ -162,5 +165,8 @@
       <?php endfor; ?>
     </p>
   <?php endif; ?>
+    </div>
+  </section>
+  <?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>

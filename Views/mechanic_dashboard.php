@@ -7,11 +7,22 @@
   <title>Dashboard Μηχανικού</title>
 </head>
 <body>
-  <!-- Nav buttons -->
-  <div class="dashboard-nav" style="margin: 1em 0;">
-    <a href="appointments_mechanic.php"><button>Διαχείριση Ραντεβού</button></a>
-    <a href="all_tasks.php"><button>Εργασίες Μου</button></a>
-    <a href="new_task.php"><button>Νέα Εργασία</button></a>
+  <section class="hero-background dashboard-hero">
+    <div class="hero-overlay"></div>
+  </section>
+
+  <div class="dashboard-container">
+    <aside class="dashboard-sidebar">
+      <button onclick="location.href='appointments_mechanic.php'">Διαχείριση Ραντεβού</button>
+      <button onclick="location.href='all_tasks.php'">Εργασίες Μου</button>
+      <button onclick="location.href='new_task.php'">Νέα Εργασία</button>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="welcome-message">
+        <h3>Καλωσήρθες, <?= htmlspecialchars($username) ?>!</h3>
+      </div>
+    </main>
   </div>
 
 </body>
