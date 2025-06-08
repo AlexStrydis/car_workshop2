@@ -38,7 +38,17 @@ $tasks      = $taskModel->getByMechanicWithFilters($mechId, $filters, $limit, $o
 
 // Title & header
 $pageTitle = 'Όλες οι Εργασίες Μου';
-include __DIR__ . '/inc/header.php';
-
-// Render view
-include __DIR__ . '/../views/all_tasks.php';
+?>
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <title><?= htmlspecialchars($pageTitle) ?></title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<?php include __DIR__ . '/inc/header.php'; ?>
+<?php include __DIR__ . '/../views/all_tasks.php'; ?>
+<?php include __DIR__ . '/inc/footer.php'; ?>
+</body>
+</html>

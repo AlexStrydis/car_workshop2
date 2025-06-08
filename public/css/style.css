@@ -50,8 +50,8 @@ body::after  { right: 0; }
 
 /* Βασικό κεντραρισμένο πλαίσιο για όλες τις σελίδες με περιεχόμενο */
 .container {
-  max-width: 800px;
-  margin: 60px auto;       /* Δημιουργεί κενό πάνω/κάτω + κεντράρει οριζόντια */
+  max-width: 1000px;
+  margin: 10px auto;       /* Δημιουργεί κενό πάνω/κάτω + κεντράρει οριζόντια */
   padding: 30px 25px;
   background-color: #333333; /* Ελαφρώς ανοιχτότερο από τη “κουρτίνα” */
   border-radius: 8px;
@@ -302,10 +302,6 @@ tr:nth-child(odd) {
   background-color: #2e2e2e;
 }
 
-.table-responsive {
-  overflow-x: auto;
-}
-
 /*========================================
 =               Utility CSS              =
 ========================================*/
@@ -436,7 +432,7 @@ tr:nth-child(odd) {
     max-width: none;
     box-sizing: border-box;
   }
-  table, .table-responsive {
+  table {
     font-size: 0.9rem;
   }
   .page-header {
@@ -457,14 +453,20 @@ tr:nth-child(odd) {
 
 /* Κορυφαίο τμήμα με dark‐background και λογότυπο + nav */
 .site-header {
-  background-color: #1f1f1f;
-  border-bottom: 2px solid #333333;
+  background-color: #1f1f1f !important;
+  border-bottom: 2px solid #333333 !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  position: fixed !important;
+  top: 0 !important;
+  width: 100% !important;
+  z-index: 1000 !important;
 }
 .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 5px 0 !important;
 }
 
 /* Logo (μπορεί απλά να είναι text ή εικόνα) */
@@ -507,11 +509,34 @@ tr:nth-child(odd) {
 /* Παίρνουμε μια μεγάλη εικόνα φόντου */
 .hero-section {
   position: relative;
-  background: url('../images/hero-bg.jpg') center center/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg') center center/cover no-repeat;
   min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+/* Overlay used in dashboards */
+.hero-section .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Τίτλοι και υπότιτλοι μέσα στο hero */
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  color: #f1c40f;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #dddddd;
+  margin-top: 10px;
 }
 
 /* Βασική μορφοποίηση για όλα τα κουμπιά μέσα στο Hero */
@@ -633,7 +658,7 @@ tr:nth-child(odd) {
 /* Grid με κάρτες υπηρεσιών (icon + όνομα) */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
 }
 .service-card {
@@ -672,12 +697,17 @@ tr:nth-child(odd) {
   background-color: #1f1f1f;
   color: #cccccc;
   padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 .footer-col {
   flex: 1 1 220px;
@@ -706,11 +736,13 @@ tr:nth-child(odd) {
 
 /* Footer bottom bar */
 .footer-bottom {
-  border-top: 1px solid #333333;
-  margin-top: 20px;
-  padding: 15px 0;
-  font-size: 0.85rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #333333;
   color: #777777;
+  text-align: center;
+  padding: 10px 0;
 }
 
 /*========================================
@@ -855,6 +887,22 @@ tr:nth-child(odd) {
   box-shadow: 0 2px 6px rgba(22, 160, 133, 0.5);
 }
 
+/* Ενσωματωμένος χάρτης στην ενότητα επικοινωνίας */
+.map-container {
+  margin-top: 20px;
+  width: 100%;
+  height: 250px;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 /* Responsive ρυθμίσεις για Contact Grid */
 @media (max-width: 800px) {
   .contact-grid {
@@ -863,219 +911,158 @@ tr:nth-child(odd) {
   }
 }
 
+/*==============================
+=         Animations          =
+==============================*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Reusable class for hero background image */
+.hero-background {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg')
+    center center/cover no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px; /* Αυξήσαμε το padding-top για να μετακινήσουμε το container πιο κάτω */
+}
+
+/* Fix layout for services grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Fix footer layout */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.footer-col {
+  flex: 1 1 220px;
+  margin-bottom: 25px;
+}
+
 /*========================================
-=      Index.php – Ειδικά Overrides      =
+=              LOGO STYLING            =
 ========================================*/
 
-/* 1. Καταργούμε το margin/padding και το background της .container μόνο μέσα στο header */
-.site-header .container {
-  margin: 0 auto;              /* Καμία απόσταση πάνω/κάτω */
-  padding: 0;                  /* Καμία εσωτερική απόσταση */
-  background-color: transparent; /* Header παίρνει μόνο το δικό του #1f1f1f */
-  box-shadow: none;            /* Αφαιρούμε το shadow της container */
-  border-radius: 0;            /* Καμία στρογγυλή γωνία */
+.logo {
+  position: absolute;
+  left: 0;
+  margin-left: 10px;
 }
 
-/* 2. Προσαρμόζουμε το padding του header-container */
-.site-header .header-container {
+.logo img {
+  height: 80px;
+}
+
+/* Header logo refinement */
+.site-header .logo {
   display: flex;
-  justify-content: space-between; /* logo αριστερά, nav δεξιά */
-  align-items: flex-start;         /* όλα στην κορυφή */
-  padding: 15px 25px;             /* 15px πάνω/κάτω, 25px αριστερά/δεξιά */
+  align-items: center;
+  justify-content: center;
+  height: 100px;
 }
 
-/* 3. Δεν θέλουμε margin-top στο header */
-.site-header {
-  margin-top: 0;
+.site-header .logo img {
+  max-height: 80px;
+  width: auto;
 }
 
-/* 4. Κρύβουμε τα κουμπιά εγγραφής/σύνδεσης όταν βρίσκονται ΜΟΝΟ μέσα στο header */
-.site-header .site-nav .btn-register,
-.site-header .site-nav .btn-login {
+/*========================================
+=         Animations & Transitions      =
+========================================*/
+
+/* Γενικές μεταβάσεις για όλα τα στοιχεία */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Fade-in animation για sections */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide-in animation για το κείμενο του hero */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Zoom-in animation για εικόνες */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Ειδικές κλάσεις για animations */
+.fade-in {
+  animation: fadeIn 0.8s forwards;
+}
+.slide-in {
+  animation: slideIn 0.8s forwards;
+}
+.zoom-in {
+  animation: zoomIn 0.8s forwards;
+}
+
+/*========================================
+=         Responsive Utilities           =
+========================================*/
+
+/* Κρυφό περιεχόμενο για mobile */
+.hidden-mobile {
   display: none;
 }
 
-/* 5. Overlay ώστε η εικόνα κάτω από το κείμενο να «σβήσει» ελαφρώς */
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
-/* 6. Βάζουμε το hero-content πάνω από το overlay */
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-/* 7. Κεντρικό ημιδιαφανές box μέσα στο hero */
-.hero-content.container {
-  background-color: rgba(0, 0, 0, 0.5); /* Μαύρο 50% αδιαφάνεια */
-  border-radius: 8px;
-  padding: 30px 25px; /* όπως είχε το .container */
-}
-/*========================================
-=    Index.php – Ειδικά Overrides #2    =
-========================================*/
-
-/* 1. Κάνουμε το .container που βρίσκεται _ΜΟΝΟ_ μέσα στο header full-width */
-.site-header .container {
-  max-width: none;       /* Καμία ανώτατη τιμή πλάτους */
-  width: 100%;           /* Πάρε ολόκληρο το πλάτος */
-  margin: 0;             /* Καμία αυτόματη στοίχιση */
-  padding: 0;            /* Καμία εσωτερική απόσταση */
-  background-color: transparent; /* Header παίρνει μόνο το δικό του #1f1f1f */
-  box-shadow: none;      /* Αφαιρούμε το shadow που είχε το .container */
-  border-radius: 0;      /* Καμία στρογγυλή γωνία */
-}
-
-/* 2. Σιγουρευόμαστε ότι το header-container στέκεται πάνω-πάνω:
-     logo αριστερά, nav δεξιά */
-.site-header .header-container {
+/* Flexbox center για οτιδήποτε */
+.flex-center {
   display: flex;
-  justify-content: space-between; /* logo αριστερά, nav δεξιά */
-  align-items: flex-start;        /* όλα κολλητά στην κορυφή */
-  padding: 15px 25px;             /* ίδιο padding που θέλουμε */
+  justify-content: center;
+  align-items: center;
 }
 
-/* 3. Μην αφήνουμε margin-top στο header */
-.site-header {
-  margin-top: 0;
-}
-
-/* 4. Κάνουμε display: none για τα κουμπιά εγγραφής/σύνδεσης μέσα στο header */
-.site-header .site-nav .btn-register,
-.site-header .site-nav .btn-login {
-  display: none;
-}
-
-/* 5. (Προαιρετικό) Αν χρειάζεσαι λίγο “αέρα” πάνω από το nav, 
-   άνοιξε το margin-top των links:
-.site-header .site-nav a {
-  margin-top: 5px;
-}
-*/
-
-/* 6. Κάνουμε το hero-section ψηλότερο ώστε η εικόνα να απλώνει περισσότερο */
-.hero-section {
-  min-height: 70vh; /* ή min-height: 600px; αν προτιμάς pixels */
-}
-
-/*========================================
-=  Register / Login – Ειδικά Overrides   =
-========================================*/
-
-/* 1. Ήδη η .hero-section έχει:
-   background: url('../images/hero-bg.jpg') center center/cover no-repeat;
-   min-height: 400px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   Θα το κάνουμε εγγυημένα ψηλότερο για να μη "κρύβεται" η φόρμα από κάτω. */
-.hero-section {
-  min-height: 80vh; /* Κάνει το φόντο να καλύπτει το 80% του ύψους οθόνης */
-  position: relative; /* Για να μπορεί το overlay να καλύπτει όλη την έκταση */
-}
-
-/* 2. Το overlay (όπως και στο index) */
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* ΜΠΟΡΕΙΣ να το φέρεις σε 0.4 ή 0.6 ανάλογα */
-  z-index: 1;
-}
-
-/* 3. Η hero-content (το κεντρικό πλαίσιο) */
-.hero-content {
-  position: relative;
-  z-index: 2; /* Παίρνει ένα επίπεδο πάνω από το overlay */
-  text-align: left; /* Γιατί θέλουμε το κείμενο/φόρμα ευθυγραμμισμένα αριστερά */
-}
-
-/* 4. Κάνουμε το auth-container πιο "στενό" αν χρειάζεται */
-/* (η .auth-container έχει ήδη max-width: 400px και padding κλπ. από το global CSS σου) */
-.auth-container {
-  background-color: rgba(30, 30, 30, 0.9); /* Κάνει το φόντο λίγο πιο σκούρο & πυκνό */
-  border-radius: 8px;  /* Στρογγυλεμένες γωνίες */
-  padding: 30px 25px;  /* Ακριβώς όπως είχαν οι φόρμες, αλλά ημιδιαφανές */
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5); /* Για να “αιωρείται” πάνω από την εικόνα */
-  max-width: 420px;    /* Αν θέλεις, λίγο πιο φαρδύ από 400px */
-  margin: auto;        /* Κεντράρει το box οριζόντια */
-}
-
-/* 5. Στυλ στα πεδία (εφόσον ΔΕΝ τα έχει ήδη καλύψει το global CSS) */
-.auth-container .form-group {
-  margin-bottom: 15px;
-}
-
-.auth-container .form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 500;
-  color: #dddddd;
-}
-
-.auth-container .form-group input,
-.auth-container .form-group select {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #555555;
-  border-radius: 4px;
-  background-color: #3a3a3a;
-  color: #eeeeee;
-  font-size: 1rem;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
-}
-
-.auth-container .form-group input:focus,
-.auth-container .form-group select:focus {
-  border-color: #f1c40f;
-  background-color: #4c4c4c;
-  outline: none;
-}
-
-/* 6. Στυλ για τα alerts (λάθος / επιτυχία) */
-.alert {
-  padding: 12px 15px;
-  margin-bottom: 20px;
-  border-radius: 4px;
-  font-size: 0.95rem;
-  text-align: center;
-}
-
-.alert-error {
-  background-color: #c0392b;     /* Κόκκινο για λάθος */
-  border: 1px solid #7b241c;
-  color: #ecf0f1;
-}
-
-.alert-success {
-  background-color: #27ae60;     /* Πράσινο για επιτυχία */
-  border: 1px solid #145a32;
-  color: #ecf0f1;
-}
-
-/* 7. Στυλ για το button μέσα σε auth-container (αν θέλεις επιπλέον override) */
-.auth-container button.btn-primary {
-  width: 100%;         /* Πλήρες πλάτος του container */
-  padding: 12px 0;     /* Ψηλό κουμπί */
-  font-size: 1.05rem;
-  border-radius: 5px;
-  margin-top: 10px;
-  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-}
-
-.auth-container button.btn-primary:hover {
-  background-color: #16a085; /* Από το παλιό σου palette για hover */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(22, 160, 133, 0.5);
+/* Stack σε στήλες με gap */
+.column-gap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
 }
 
 /* 8. Responsive tweak: Σε μικρότερα κινητά, μικραίνουμε padding */
@@ -1111,6 +1098,7 @@ tr:nth-child(odd) {
 /* 2) Hero image μεγαλύτερη */
 .dashboard-hero {
   background: url('../images/hero-bg.jpg') center center/cover no-repeat;
+  height: 40vh;
   min-height: 40vh;
   position: relative;
   margin-bottom: 30px;
@@ -1167,14 +1155,6 @@ tr:nth-child(odd) {
 =      Dashboard – Sidebar & Calendar    =
 ========================================*/
 
-/* Hero κάτω από το header */
-.dashboard-hero {
-  background: url('../images/hero-bg.jpg') center center/cover no-repeat;
-  min-height: 35vh;
-  position: relative;
-  margin-bottom: 30px;
-}
-
 /* Κεντρική διάταξη: sidebar + main */
 .dashboard-layout {
   display: grid;
@@ -1190,15 +1170,16 @@ tr:nth-child(odd) {
   border-radius: 8px;
   padding: 20px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 .dashboard-actions-box button {
   background-color: #27ae60;
   color: #ffffff;
   border: none;
   border-radius: 5px;
-  padding: 12px;
-  margin-bottom: 12px;
+  padding: 12px 20px;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
@@ -1253,14 +1234,6 @@ tr:nth-child(odd) {
 
 /* Responsive για μικρότερα */
 @media (max-width: 800px) {
-  .dashboard-layout {
-    grid-template-columns: 1fr;
-  }
-  .dashboard-actions-box {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
   .dashboard-actions-box button {
     flex: 1 1 calc(50% - 10px);
   }
@@ -1270,14 +1243,6 @@ tr:nth-child(odd) {
 /*========================================
 =        Dashboard – Δίπτυχος Layout      =
 ========================================*/
-
-/* Hero image */
-.dashboard-hero {
-  background: url('../images/hero-bg.jpg') center/cover no-repeat;
-  min-height: 35vh;
-  position: relative;
-  margin-bottom: 30px;
-}
 
 /* Δομή δύο στηλών: sidebar (240px) + main */
 .dashboard-container {
@@ -1384,15 +1349,17 @@ tr:nth-child(odd) {
 .data-table th,
 .data-table td {
   padding: 0.5em 0.75em;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
+  color: #eee;
 }
 .data-table th {
-  background-color: #f0f0f0;
+  background-color: #3a3a3a;
+  color: #f1c40f;
   text-align: left;
 }
 .data-table tr:nth-child(even) {
-  background-color: #fafafa;
+  background-color: #3a3a3a;
 }
 .data-table tr:hover {
-  background-color: #f5f5f5;
+  background-color: #2e2e2e;
 }
