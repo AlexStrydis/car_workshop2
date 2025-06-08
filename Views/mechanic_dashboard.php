@@ -9,9 +9,8 @@
 <body>
   <section class="hero-background dashboard-hero">
     <div class="hero-overlay"></div>
-  </section>
 
-  <div class="dashboard-container">
+    <div class="dashboard-container">
     <aside class="dashboard-sidebar">
       <button onclick="location.href='appointments_mechanic.php'">Διαχείριση Ραντεβού</button>
       <button onclick="location.href='all_tasks.php'">Εργασίες Μου</button>
@@ -23,7 +22,8 @@
         <h3>Καλωσήρθες, <?= htmlspecialchars($username) ?>!</h3>
       </div>
     </main>
-  </div>
+    </div>
+  </section>
 
-</body>
+  </body>
 </html>

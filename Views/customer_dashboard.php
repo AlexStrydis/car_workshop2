@@ -12,9 +12,8 @@
 <body>
   <section class="hero-background dashboard-hero">
     <div class="hero-overlay"></div>
-  </section>
 
-  <div class="dashboard-container">
+    <div class="dashboard-container">
     <aside class="dashboard-sidebar">
       <button onclick="location.href='cars.php'">Διαχείριση Αυτοκινήτων</button>
       <button onclick="location.href='appointments.php'">Διαχείριση Ραντεβού</button>
@@ -27,6 +26,7 @@
       </div>
     </main>
   </div>
+  </section>
 </body>
 </html>
 
