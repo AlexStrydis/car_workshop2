@@ -20,7 +20,7 @@
   </div>
   <section class="hero-background">
     <div class="login-container" style="background-color: rgba(0, 0, 0, 0.8); padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); width: 100%; max-width: 400px;">
-      <h2 class="login-title" style="color: #f1c40f; text-align: center; margin-bottom: 20px;"><?= t('nav.login') ?></h2>
+      <h2 class="login-title" style="color: #f1c40f; text-align: center; margin-bottom: 20px;"><?= t('login.title') ?></h2>
       <form method="POST" action="../public/login.php" class="login-form" style="display: flex; flex-direction: column; gap: 15px;">
         <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>">
         <div class="form-group" style="display: flex; flex-direction: column;">
@@ -32,7 +32,7 @@
           <input type="password" id="password" name="password" required style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
         </div>
         <button type="submit" class="btn-primary" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">
-          <?= t('nav.login') ?>
+          <?= t('login.title') ?>
         </button>
       </form>
       <?php if (!empty($_SESSION['error'])): ?>

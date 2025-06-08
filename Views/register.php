@@ -132,14 +132,12 @@ require_once '../config/lang.php';
         <label style="color: #ffffff;">
           <?= t('register.role') ?>
           <select name="role" id="role" required style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
-            <option value="">-- Επιλέξτε --</option>
-            <option value="customer"
-              <?= (($_SESSION['old']['role'] ?? '') === 'customer') ? 'selected' : '' ?>>
-              Customer
+            <option value=""><?= t('register.role.choose') ?></option>
+            <option value="customer" <?= (($_SESSION['old']['role'] ?? '') === 'customer') ? 'selected' : '' ?>>
+              <?= t('register.role.customer') ?>
             </option>
-            <option value="mechanic"
-              <?= (($_SESSION['old']['role'] ?? '') === 'mechanic') ? 'selected' : '' ?>>
-              Mechanic
+            <option value="mechanic" <?= (($_SESSION['old']['role'] ?? '') === 'mechanic') ? 'selected' : '' ?>>
+              <?= t('register.role.mechanic') ?>
             </option>
           </select>
           <?php

@@ -63,6 +63,9 @@ return [
     'register.address' => 'Address:',
     'register.specialty' => 'Specialty:',
     'register.have_account' => 'Already have an account? Login now',
+    'register.role.customer' => 'Customer',
+    'register.role.mechanic' => 'Mechanic',
+    'register.role.choose' => '-- Select --',
 
     'about.title' => 'About Car Workshop',
     'about.p1' => 'Car Workshop was founded in 2015 with the vision of providing quality and fast service to our customers. From day one our goal has been to offer:',
