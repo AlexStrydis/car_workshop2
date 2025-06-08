@@ -10,6 +10,8 @@ function buildQuery(array $overrides = []): string {
 }
 ?>
 
+<section class="hero-background">
+  <div class="container">
 <h1>Όλες οι Εργασίες Μου</h1>
 
 <form method="get" action="" style="margin-bottom:1em;">
@@ -34,7 +36,7 @@ function buildQuery(array $overrides = []): string {
 
 <p>Βρέθηκαν συνολικά <?= $totalTasks ?> εργασίες.</p>
 
-<table border="1" cellpadding="5" cellspacing="0" width="100%">
+<table class="data-table">
   <thead>
     <tr>
       <th>ID</th><th>Ημ/νία</th><th>Ώρα</th>
@@ -86,3 +88,5 @@ function buildQuery(array $overrides = []): string {
     <?php endif; ?>
   </div>
 <?php endif; ?>
+  </div>
+</section>
