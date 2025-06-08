@@ -1,7 +1,7 @@
 <?php
 // public/inc/footer.php
 ?>
-<section class="site-footer">
+<section class="site-footer hero-background">
     <div class="container footer-container">
       <div class="footer-col">
         <h4>Επικοινωνία</h4>
