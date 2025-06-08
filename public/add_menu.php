@@ -16,31 +16,31 @@ if (!in_array($role, ['secretary', 'customer'], true)) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="el">
+<html lang="<?= $lang ?>">
 <head>
   <meta charset="UTF-8">
-  <title>Νέα Προσθήκη</title>
+  <title><?= t('add_menu.title') ?></title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <?php include __DIR__ . '/inc/header.php'; ?>
   <section class="hero-background">
     <div class="container">
-      <p><a href="dashboard.php">← Επιστροφή στο Dashboard</a></p>
-      <h1>Νέα Προσθήκη</h1>
+      <p><a href="dashboard.php"><?= t('add_menu.back_dashboard') ?></a></p>
+      <h1><?= t('add_menu.heading') ?></h1>
 
       <ul>
         <?php if ($role === 'secretary'): ?>
         <li>
-          <a href="create_user.php">➤ Προσθήκη Νέου Χρήστη</a>
+          <a href="create_user.php">➤ <?= t('add_menu.add_user') ?></a>
         </li>
         <?php endif; ?>
 
         <li>
-          <a href="create_car.php">➤ Προσθήκη Νέου Αυτοκινήτου</a>
+          <a href="create_car.php">➤ <?= t('add_menu.add_car') ?></a>
         </li>
         <li>
-          <a href="create_appointment.php">➤ Προσθήκη Νέου Ραντεβού</a>
+          <a href="create_appointment.php">➤ <?= t('add_menu.add_appt') ?></a>
         </li>
       </ul>
     </div>
