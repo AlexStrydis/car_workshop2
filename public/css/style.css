@@ -1098,20 +1098,10 @@ tr:nth-child(odd) {
 /* 2) Hero image μεγαλύτερη */
 .dashboard-hero {
   background: url('../images/hero-bg.jpg') center center/cover no-repeat;
-  background-attachment: scroll;
   height: 40vh;
   min-height: 40vh;
   position: relative;
   margin-bottom: 30px;
-}
-
-.dashboard-hero .hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* 3) Layout sidebar + main */
