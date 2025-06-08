@@ -6,7 +6,7 @@ require __DIR__ . '/../config/lang.php';
 <html lang="<?= $lang ?>">
 <head>
   <meta charset="UTF-8" />
-  <title>Car Workshop | Αρχική</title>
+  <title>Car Workshop | <?= t('nav.home') ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -62,24 +62,17 @@ require __DIR__ . '/../config/lang.php';
         <div class="feature-card">
           <div class="feature-icon">🛠️</div>
           <h3><?= t('index.feature.mechanics') ?></h3>
-          <p>
-            Όλοι οι μηχανικοί μας είναι ASE-Certified και εκπαιδευμένοι στις
-            τελευταίες τεχνολογίες.
-          </p>
+          <p><?= t('index.feature.mechanics_desc') ?></p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">⏱️</div>
           <h3><?= t('index.feature.quick') ?></h3>
-          <p>
-            Στόχος μας η άμεση επίλυση, χωρίς να θυσιάζουμε την ποιότητα.
-          </p>
+          <p><?= t('index.feature.quick_desc') ?></p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">💯</div>
           <h3><?= t('index.feature.guarantee') ?></h3>
-          <p>
-            Όλες οι εργασίες μας συνοδεύονται από 1 έτος / 10.000χλμ εγγύηση.
-          </p>
+          <p><?= t('index.feature.guarantee_desc') ?></p>
         </div>
       </div>
     </div>
@@ -92,33 +85,32 @@ require __DIR__ . '/../config/lang.php';
     <div class="container">
       <h2><?= t('index.services_title') ?></h2>
       <p class="lead">
-        Καλύπτουμε οποιαδήποτε ανάγκη συντήρησης ή επισκευής αυτοκινήτου, από
-        αλλαγή λαδιών έως και πλήρη ανακατασκευή κινητήρα.
+        <?= t('index.services_paragraph') ?>
       </p>
       <div class="services-grid">
         <div class="service-card">
-          <img src="images/icon-oil.png" alt="Oil Change" />
-          <h4>Αλλαγή Λαδιών</h4>
+          <img src="images/icon-oil.png" alt="<?= t('index.service.oil') ?>" />
+          <h4><?= t('index.service.oil') ?></h4>
         </div>
         <div class="service-card">
-          <img src="images/icon-brake.png" alt="Brake Repair" />
-          <h4>Επισκευή Φρένων</h4>
+          <img src="images/icon-brake.png" alt="<?= t('index.service.brake') ?>" />
+          <h4><?= t('index.service.brake') ?></h4>
         </div>
         <div class="service-card">
-          <img src="images/icon-engine.png" alt="Engine Repair" />
-          <h4>Επισκευή Κινητήρα</h4>
+          <img src="images/icon-engine.png" alt="<?= t('index.service.engine') ?>" />
+          <h4><?= t('index.service.engine') ?></h4>
         </div>
         <div class="service-card">
-          <img src="images/icon-ac.png" alt="A/C Service" />
-          <h4>Σέρβις Κλιματισμού</h4>
+          <img src="images/icon-ac.png" alt="<?= t('index.service.ac') ?>" />
+          <h4><?= t('index.service.ac') ?></h4>
         </div>
         <div class="service-card">
-          <img src="images/icon-battery.png" alt="Battery Service" />
-          <h4>Μπαταρίες & Ηλεκτρικά</h4>
+          <img src="images/icon-battery.png" alt="<?= t('index.service.battery') ?>" />
+          <h4><?= t('index.service.battery') ?></h4>
         </div>
         <div class="service-card">
-          <img src="images/icon-inspection.png" alt="Diagnostics" />
-          <h4>Διαγνωστικός Έλεγχος</h4>
+          <img src="images/icon-inspection.png" alt="<?= t('index.service.inspection') ?>" />
+          <h4><?= t('index.service.inspection') ?></h4>
         </div>
       </div>
       <div class="text-center mt-10">

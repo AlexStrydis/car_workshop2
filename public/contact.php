@@ -64,22 +64,22 @@ $token = generateCsrfToken();
 
             <div class="form-group">
               <label for="name"><?= t('contact.name') ?></label>
-              <input type="text" id="name" name="name" required placeholder="Το όνομά σας" />
+              <input type="text" id="name" name="name" required placeholder="<?= t('contact.placeholder.name') ?>" />
             </div>
 
             <div class="form-group">
               <label for="email"><?= t('contact.email') ?></label>
-              <input type="email" id="email" name="email" required placeholder="your@email.com" />
+              <input type="email" id="email" name="email" required placeholder="<?= t('contact.placeholder.email') ?>" />
             </div>
 
             <div class="form-group">
               <label for="subject"><?= t('contact.subject') ?></label>
-              <input type="text" id="subject" name="subject" required placeholder="Θέμα μηνύματος" />
+              <input type="text" id="subject" name="subject" required placeholder="<?= t('contact.placeholder.subject') ?>" />
             </div>
 
             <div class="form-group">
               <label for="message"><?= t('contact.message') ?></label>
-              <textarea id="message" name="message" rows="5" required placeholder="Περιγράψτε το ερώτημα ή το σχόλιό σας"></textarea>
+              <textarea id="message" name="message" rows="5" required placeholder="<?= t('contact.placeholder.message') ?>"></textarea>
             </div>
 
             <button type="submit" class="btn-primary"><?= t('contact.send') ?></button>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login | Car Workshop</title>
+  <title><?= t('login.title') ?> | Car Workshop</title>
   <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
@@ -24,11 +24,11 @@
       <form method="POST" action="../public/login.php" class="login-form" style="display: flex; flex-direction: column; gap: 15px;">
         <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>">
         <div class="form-group" style="display: flex; flex-direction: column;">
-          <label for="username" style="color: #ffffff; margin-bottom: 5px;">Όνομα Χρήστη:</label>
+          <label for="username" style="color: #ffffff; margin-bottom: 5px;"><?= t('login.username_label') ?></label>
           <input type="text" id="username" name="username" required style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
         </div>
         <div class="form-group" style="display: flex; flex-direction: column;">
-          <label for="password" style="color: #ffffff; margin-bottom: 5px;">Κωδικός:</label>
+          <label for="password" style="color: #ffffff; margin-bottom: 5px;"><?= t('login.password_label') ?></label>
           <input type="password" id="password" name="password" required style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
         </div>
         <button type="submit" class="btn-primary" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">
@@ -43,7 +43,7 @@
         <a href="../public/index.php" class="btn-secondary" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">
           <?= t('nav.home') ?>
         </a>
-        <p style="color: #ffffff; margin-top: 10px;">Δεν έχεις λογαριασμό; Κάνε εγγραφή τώρα</p>
+        <p style="color: #ffffff; margin-top: 10px;"><?= t('login.no_account') ?></p>
         <a href="../public/register.php" class="btn-primary" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">
           <?= t('nav.register') ?>
         </a>
