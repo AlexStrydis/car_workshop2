@@ -142,5 +142,3 @@ include __DIR__ . '/inc/header.php';
   </div>
 </form>
 
-<?php
-
