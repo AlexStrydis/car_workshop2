@@ -53,7 +53,7 @@ if (!function_exists('renderCalendar')) {
 <body>
 
   <!-- Hero Image -->
-  <section class="hero-section dashboard-hero">
+  <section class="hero-background dashboard-hero">
     <div class="hero-overlay"></div>
   </section>
 
