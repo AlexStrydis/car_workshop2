@@ -28,7 +28,7 @@ if (!in_array($role, ['secretary', 'customer'], true)) {
   <ul>
     <?php if ($role === 'secretary'): ?>
     <li>
-      <a href="register.php">➤ Προσθήκη Νέου Χρήστη</a>
+      <a href="create_user.php">➤ Προσθήκη Νέου Χρήστη</a>
     </li>
     <?php endif; ?>
 
