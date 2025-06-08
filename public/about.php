@@ -1,6 +1,7 @@
 <?php
 // public/about.php
 require_once '../config/app.php';
+require_once '../config/lang.php';
 ?>
 <!DOCTYPE html>
 <html lang="<?= $lang ?>">
