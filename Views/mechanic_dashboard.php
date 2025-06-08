@@ -7,7 +7,7 @@
   <title>Dashboard Μηχανικού</title>
 </head>
 <body>
-  <section class="hero-section dashboard-hero">
+  <section class="hero-background dashboard-hero">
     <div class="hero-overlay"></div>
   </section>
 

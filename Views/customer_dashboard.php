@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <section class="hero-section dashboard-hero">
+  <section class="hero-background dashboard-hero">
     <div class="hero-overlay"></div>
   </section>
 
