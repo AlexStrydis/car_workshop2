@@ -44,44 +44,29 @@ if (!function_exists('renderCalendar')) {
 <html lang="el">
 <head>
   <link rel="stylesheet" href="css/style.css">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?=htmlspecialchars($pageTitle)?></title>
-  
+  <title><?= htmlspecialchars($pageTitle) ?></title>
 </head>
 <body>
+  <?php include __DIR__ . '/../public/inc/header.php'; ?>
 
-  <!-- Hero Image with dashboard content -->
   <section class="hero-background dashboard-hero">
     <div class="hero-overlay"></div>
-
-    <!-- Δίπτυχος Layout: Sidebar αριστερά, Main δεξιά -->
-    <div class="dashboard-container">
-
-    <!-- SIDEBAR κουτί με τα μεγάλα κουμπιά -->
-    <aside class="dashboard-sidebar">
-      <button onclick="location.href='users.php'">Διαχείριση Χρηστών</button>
-      <button onclick="location.href='cars.php'">Διαχείριση Αυτοκινήτων</button>
-      <button onclick="location.href='appointments.php'">Διαχείριση Ραντεβού</button>
-      <!-- Νέο -->
-  <button onclick="location.href='add_menu.php'">
-    Νέα Προσθήκη
-  </button>
-    </aside>
-
-    <!-- ΚΕΝΤΡΙΚΟ ΠΕΡΙΕΧΟΜΕΝΟ -->
-    <main class="dashboard-main">
-      <div class="welcome-message">
-        <h3>Καλωσήρθες, <?=htmlspecialchars($username)?>!</h3>
+    <div class="container">
+      <h3 class="welcome-message">Καλωσήρθες, <?= htmlspecialchars($username) ?>!</h3>
+      <div class="dashboard-actions-box">
+        <button onclick="location.href='users.php'">Διαχείριση Χρηστών</button>
+        <button onclick="location.href='cars.php'">Διαχείριση Αυτοκινήτων</button>
+        <button onclick="location.href='appointments.php'">Διαχείριση Ραντεβού</button>
+        <button onclick="location.href='add_menu.php'">Νέα Προσθήκη</button>
       </div>
       <div class="calendar-container">
         <?= renderCalendar($appointmentsByDate) ?>
       </div>
-    </main>
-
-  </div>
+    </div>
   </section>
 
+  <?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>

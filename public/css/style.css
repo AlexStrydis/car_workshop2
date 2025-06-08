@@ -1235,15 +1235,16 @@ tr:nth-child(odd) {
   border-radius: 8px;
   padding: 20px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 .dashboard-actions-box button {
   background-color: #27ae60;
   color: #ffffff;
   border: none;
   border-radius: 5px;
-  padding: 12px;
-  margin-bottom: 12px;
+  padding: 12px 20px;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
@@ -1298,14 +1299,6 @@ tr:nth-child(odd) {
 
 /* Responsive για μικρότερα */
 @media (max-width: 800px) {
-  .dashboard-layout {
-    grid-template-columns: 1fr;
-  }
-  .dashboard-actions-box {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
   .dashboard-actions-box button {
     flex: 1 1 calc(50% - 10px);
   }

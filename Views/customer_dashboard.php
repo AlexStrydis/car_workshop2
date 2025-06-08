@@ -10,23 +10,19 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <?php include __DIR__ . '/../public/inc/header.php'; ?>
   <section class="hero-background dashboard-hero">
     <div class="hero-overlay"></div>
-
-    <div class="dashboard-container">
-    <aside class="dashboard-sidebar">
-      <button onclick="location.href='cars.php'">Διαχείριση Αυτοκινήτων</button>
-      <button onclick="location.href='appointments.php'">Διαχείριση Ραντεβού</button>
-      <button onclick="location.href='add_menu.php'">Νέα Προσθήκη</button>
-    </aside>
-
-    <main class="dashboard-main">
-      <div class="welcome-message">
-        <h3>Καλώς ήρθες, <?= htmlspecialchars($username) ?>!</h3>
+    <div class="container">
+      <h3 class="welcome-message">Καλώς ήρθες, <?= htmlspecialchars($username) ?>!</h3>
+      <div class="dashboard-actions-box">
+        <button onclick="location.href='cars.php'">Διαχείριση Αυτοκινήτων</button>
+        <button onclick="location.href='appointments.php'">Διαχείριση Ραντεβού</button>
+        <button onclick="location.href='add_menu.php'">Νέα Προσθήκη</button>
       </div>
-    </main>
-  </div>
+    </div>
   </section>
+  <?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>
 

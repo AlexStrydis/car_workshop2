@@ -61,8 +61,5 @@ else {
     exit;
 }
 
-// Include του κοινόχρηστου header
-include __DIR__ . '/inc/header.php';
-
-// Φόρτωση του κατάλληλου view
+// Το view θα εμφανίσει το κοινό header και footer
 include $viewFile;
