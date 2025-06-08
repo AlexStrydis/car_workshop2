@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
-  <title>Cars (Page <?= htmlspecialchars($page) ?> of <?= htmlspecialchars($totalPages) ?>)</title>
+  <title>Διαχείριση Αυτοκινήτων</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Cars</h1>
+  <?php include __DIR__ . '/../public/inc/header.php'; ?>
+  <section class="hero-background">
+    <div class="container">
+      <h1>Αυτοκίνητα</h1>
 
   <!-- Εμφάνιση μηνυμάτων επιτυχίας/σφάλματος -->
   <?php if (!empty($_SESSION['success'])): ?>
@@ -19,14 +22,14 @@
     <?php unset($_SESSION['error']); ?>
   <?php endif; ?>
 
-  <p>
-    <a href="dashboard.php">Dashboard</a>
-  </p>
+      <p>
+        <a href="dashboard.php">Dashboard</a>
+      </p>
 
   <!-- -------------------------- -->
   <!-- Φόρμα φίλτρων (Search/Filter) -->
   <!-- -------------------------- -->
-  <form method="get" action="cars.php">
+      <form method="get" action="cars.php" class="filter-form">
     <label>Serial:
       <input
         type="text"
@@ -54,7 +57,7 @@
   <!-- -------------------------- -->
   <!-- Πίνακας με τα Cars -->
   <!-- -------------------------- -->
-  <table>
+      <table class="data-table">
     <tr>
       <th>Serial</th>
       <th>Model</th>
@@ -124,6 +127,8 @@
       <?php endfor; ?>
     </div>
   <?php endif; ?>
-
+    </div>
+  </section>
+  <?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>
