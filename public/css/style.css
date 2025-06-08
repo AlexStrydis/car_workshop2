@@ -525,6 +525,20 @@ tr:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* Τίτλοι και υπότιτλοι μέσα στο hero */
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  color: #f1c40f;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #dddddd;
+  margin-top: 10px;
+}
+
 /* Βασική μορφοποίηση για όλα τα κουμπιά μέσα στο Hero */
 .hero-cta a.btn-register,
 .hero-cta a.btn-login {
@@ -911,84 +925,14 @@ tr:nth-child(odd) {
   }
 }
 
-.hero-section {
-  position: relative;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg') center center/cover no-repeat;
-  min-height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.hero-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.5rem;
-  color: #f1c40f;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  color: #dddddd;
-  margin-top: 10px;
-}
-
-.hero-cta a {
-  display: inline-block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin: 0 8px;
-  padding: 12px 26px;
-  border-radius: 6px;
-  transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-}
-
-.hero-cta a.btn-register {
-  background-color: #27ae60;
-  color: #ffffff;
-  border: 2px solid #27ae60;
-}
-.hero-cta a.btn-register:hover {
-  background-color: #1e8449;
-  border-color: #1e8449;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(30, 132, 73, 0.5);
-}
-
-.hero-cta a.btn-login {
-  background-color: #f1c40f;
-  color: #2c3e50;
-  border: 2px solid #f1c40f;
-}
-.hero-cta a.btn-login:hover {
-  background-color: #d4ac0d;
-  border-color: #d4ac0d;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(212, 172, 13, 0.5);
-}
-
-/* Ensure hero-bg.jpg covers the entire page */
-.hero-section {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-/* Improve image quality for hero-bg.jpg */
-.hero-section {
-  background-size: cover;
-  background-position: center;
-}
 
 /* Reusable class for hero background image */
 .hero-background {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg') center center/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg')
+    center center/cover no-repeat;
   background-attachment: fixed;
-  background-position: fixed;
+  background-position: center;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -1211,15 +1155,6 @@ tr:nth-child(odd) {
 =      Dashboard – Sidebar & Calendar    =
 ========================================*/
 
-/* Hero κάτω από το header */
-.dashboard-hero {
-  background: url('../images/hero-bg.jpg') center center/cover no-repeat;
-  height: 40vh;
-  min-height: 40vh;
-  position: relative;
-  margin-bottom: 30px;
-}
-
 /* Κεντρική διάταξη: sidebar + main */
 .dashboard-layout {
   display: grid;
@@ -1308,15 +1243,6 @@ tr:nth-child(odd) {
 /*========================================
 =        Dashboard – Δίπτυχος Layout      =
 ========================================*/
-
-/* Hero image */
-.dashboard-hero {
-  background: url('../images/hero-bg.jpg') center/cover no-repeat;
-  height: 40vh;
-  min-height: 40vh;
-  position: relative;
-  margin-bottom: 30px;
-}
 
 /* Δομή δύο στηλών: sidebar (240px) + main */
 .dashboard-container {
