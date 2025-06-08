@@ -7,7 +7,7 @@
 </head>
 <body>
   <?php include __DIR__ . '/../public/inc/header.php'; ?>
-  <section class="hero-background dashboard-hero">
+  <section class="hero-background">
     <div class="hero-overlay"></div>
     <div class="container">
       <h3 class="welcome-message">Καλωσήρθες, <?= htmlspecialchars($username) ?>!</h3>
