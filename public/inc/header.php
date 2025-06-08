@@ -1,20 +1,33 @@
 <?php
 // public/inc/header.php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
-<header class="site-header dashboard-header">
-  <div class="header-top header-container">
-    <div class="logo">
-      <h1>Car Workshop</h1>
+<!-- Reusable Header -->
+<header class="site-header">
+  <div class="container header-container">
+    <div class="logo" style="display: flex; align-items: center; justify-content: center; height: 100px; margin-top: 10px;">
+      <img src="images/logo.png" alt="Car Workshop Logo" style="max-height: 80px; width: auto;">
     </div>
-
-    <div class="dash-title">
-      <!-- Θα το γεμίσουμε από το dashboard.php -->
-      <h2><?= $pageTitle ?? '' ?></h2>
-    </div>
-
-    <div class="header-actions">
-      <a href="logout.php" class="btn btn-danger">Logout</a>
-      <button class="btn btn-primary btn-lang">EN/EL</button>
+    <nav class="site-nav" style="margin: 0 auto; display: flex; align-items: center; justify-content: flex-end;">
+      <?php if (!empty($_SESSION['user_id'])): ?>
+      <a href="dashboard.php">Πίνακας Ελέγχου</a>
+      <?php endif; ?>
+      <a href="index.php">Αρχική</a>
+      <a href="about.php">Σχετικά</a>
+      <a href="services.php">Υπηρεσίες</a>
+      <a href="contact.php">Επικοινωνία</a>
+      <?php if (empty($_SESSION['user_id'])): ?>
+      <a href="register.php" class="btn-register" style="font-size: 0.7rem; padding: 4px 8px; margin-left: 100px; border-radius: 6px;">Εγγραφή</a>
+      <a href="login.php" class="btn-login" style="font-size: 0.7rem; padding: 4px 8px; margin-left: 10px; border-radius: 6px;">Login</a>
+      <?php endif; ?>
+    </nav>
+    <div class="workshop-title" style="position: absolute; right: 20px; top: 15px;">
+      <?php if (!empty($_SESSION['user_id'])): ?>
+      <a href="logout.php" class="btn btn-danger" style="font-size: 0.7rem; padding: 4px 8px; margin-right: 10px; border-radius: 6px;">Αποσύνδεση</a>
+      <?php endif; ?>
+      <h1 style="font-size: 1.5rem; color: #f1c40f; display: inline-block;">Car Workshop</h1>
     </div>
   </div>
 </header>
