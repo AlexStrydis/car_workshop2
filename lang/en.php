@@ -81,4 +81,25 @@ return [
     'services.ac_detail' => 'Maintenance and repair of A/C system.',
     'services.battery_detail' => 'Battery checks and electrical system service.',
     'services.inspection_detail' => 'Full diagnostic check for your car.',
+
+    // Dashboard
+    'dashboard.admin_title' => 'Admin Dashboard',
+    'dashboard.customer_title' => 'Customer Dashboard',
+    'dashboard.mechanic_title' => 'Mechanic Dashboard',
+    'dashboard.welcome' => 'Welcome, %s!',
+    'dashboard.manage_users' => 'Manage Users',
+    'dashboard.manage_cars' => 'Manage Cars',
+    'dashboard.manage_appointments' => 'Manage Appointments',
+    'dashboard.add_new' => 'Add New',
+    'dashboard.my_tasks' => 'My Tasks',
+    'dashboard.new_task' => 'New Task',
+
+    // Calendar days
+    'cal.sun' => 'Sun',
+    'cal.mon' => 'Mon',
+    'cal.tue' => 'Tue',
+    'cal.wed' => 'Wed',
+    'cal.thu' => 'Thu',
+    'cal.fri' => 'Fri',
+    'cal.sat' => 'Sat',
 ];

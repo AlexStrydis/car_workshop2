@@ -81,4 +81,25 @@ return [
     'services.ac_detail' => 'Συντήρηση και επισκευή συστήματος κλιματισμού.',
     'services.battery_detail' => 'Έλεγχος και αντικατάσταση μπαταριών και ηλεκτρικών συστημάτων.',
     'services.inspection_detail' => 'Πλήρης διαγνωστικός έλεγχος για το αυτοκίνητό σας.',
+
+    // Dashboard
+    'dashboard.admin_title' => 'Πίνακας Διαχειριστή',
+    'dashboard.customer_title' => 'Πίνακας Πελάτη',
+    'dashboard.mechanic_title' => 'Πίνακας Μηχανικού',
+    'dashboard.welcome' => 'Καλωσήρθες, %s!',
+    'dashboard.manage_users' => 'Διαχείριση Χρηστών',
+    'dashboard.manage_cars' => 'Διαχείριση Αυτοκινήτων',
+    'dashboard.manage_appointments' => 'Διαχείριση Ραντεβού',
+    'dashboard.add_new' => 'Νέα Προσθήκη',
+    'dashboard.my_tasks' => 'Εργασίες Μου',
+    'dashboard.new_task' => 'Νέα Εργασία',
+
+    // Calendar days
+    'cal.sun' => 'Κυρ',
+    'cal.mon' => 'Δευ',
+    'cal.tue' => 'Τρι',
+    'cal.wed' => 'Τετ',
+    'cal.thu' => 'Πεμ',
+    'cal.fri' => 'Παρ',
+    'cal.sat' => 'Σαβ',
 ];
