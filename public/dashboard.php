@@ -28,11 +28,11 @@ $role = $_SESSION['role'];
 $appointmentsByDate = [];
 if ($role === 'secretary') {
     try {
-        $stmt = $pdo->prepare("SELECT id, date FROM appointments WHERE date >= CURDATE()");
+        $stmt = $pdo->prepare("SELECT id, appointment_date FROM appointment WHERE appointment_date >= CURDATE()");
         $stmt->execute();
         $apps = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($apps as $a) {
-            $appointmentsByDate[$a['date']][] = $a;
+            $appointmentsByDate[$a['appointment_date']][] = $a;
         }
     } catch (PDOException $e) {
         // Πίνακας appointments δεν υπάρχει ή άλλο σφάλμα – αγνοούμε
@@ -44,16 +44,16 @@ if ($role === 'secretary') {
 
 // Ανάλογα με το role, ορίζουμε τον τίτλο και το view
 if ($role === 'secretary') {
-    $pageTitle = 'Admin Dashboard';
-    $viewFile  = __DIR__ . '/../views/dashboard.php';
+    $pageTitle = t('dashboard.admin_title');
+    $viewFile  = __DIR__ . '/../Views/dashboard.php';
 }
 elseif ($role === 'customer') {
-    $pageTitle = 'Dashboard Πελάτη';
-    $viewFile  = __DIR__ . '/../views/customer_dashboard.php';
+    $pageTitle = t('dashboard.customer_title');
+    $viewFile  = __DIR__ . '/../Views/customer_dashboard.php';
 }
 elseif ($role === 'mechanic') {
-    $pageTitle = 'Dashboard Μηχανικού';
-    $viewFile  = __DIR__ . '/../views/mechanic_dashboard.php';
+    $pageTitle = t('dashboard.mechanic_title');
+    $viewFile  = __DIR__ . '/../Views/mechanic_dashboard.php';
 }
 else {
     // Άγνωστο role: στέλνουμε στο login

@@ -1,11 +1,12 @@
 <?php
 // public/services.php
+require_once '../config/lang.php';
 ?>
 <!DOCTYPE html>
-<html lang="el">
+<html lang="<?= $lang ?>">
 <head>
   <meta charset="UTF-8" />
-  <title>Car Workshop | Υπηρεσίες</title>
+  <title>Car Workshop | <?= t('nav.services') ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Κοινό CSS -->
   <link rel="stylesheet" href="css/style.css" />
@@ -74,40 +75,40 @@
   <!-- Services Section -->
   <section class="hero-background">
     <div class="container services-section" style="background-color: rgba(0, 0, 0, 0.8);">
-      <h2 style="color: #f1c40f; text-align: center; margin-bottom: 15px;">Οι Υπηρεσίες μας</h2>
+      <h2 style="color: #f1c40f; text-align: center; margin-bottom: 15px;"><?= t('services.title') ?></h2>
       <p class="lead" style="color: #ffffff; margin-bottom: 15px;">
-        Καλύπτουμε οποιαδήποτε ανάγκη συντήρησης ή επισκευής αυτοκινήτου, από αλλαγή λαδιών έως και πλήρη ανακατασκευή κινητήρα.
+        <?= t('index.services_paragraph') ?>
       </p>
       <div class="services-grid">
         <div class="service-card">
-          <img src="images/icon-oil.png" alt="Αλλαγή Λαδιών" />
-          <h4>Αλλαγή Λαδιών</h4>
-          <div class="details">Περιλαμβάνει αλλαγή λαδιών κινητήρα και φίλτρου.</div>
+          <img src="images/icon-oil.png" alt="<?= t('index.service.oil') ?>" />
+          <h4><?= t('index.service.oil') ?></h4>
+          <div class="details"><?= t('services.oil_detail') ?></div>
         </div>
         <div class="service-card">
-          <img src="images/icon-brake.png" alt="Επισκευή Φρένων" />
-          <h4>Επισκευή Φρένων</h4>
-          <div class="details">Επισκευή και αντικατάσταση φρένων για ασφαλή οδήγηση.</div>
+          <img src="images/icon-brake.png" alt="<?= t('index.service.brake') ?>" />
+          <h4><?= t('index.service.brake') ?></h4>
+          <div class="details"><?= t('services.brake_detail') ?></div>
         </div>
         <div class="service-card">
-          <img src="images/icon-engine.png" alt="Επισκευή Κινητήρα" />
-          <h4>Επισκευή Κινητήρα</h4>
-          <div class="details">Διάγνωση και επισκευή προβλημάτων κινητήρα.</div>
+          <img src="images/icon-engine.png" alt="<?= t('index.service.engine') ?>" />
+          <h4><?= t('index.service.engine') ?></h4>
+          <div class="details"><?= t('services.engine_detail') ?></div>
         </div>
         <div class="service-card">
-          <img src="images/icon-ac.png" alt="Σέρβις Κλιματισμού" />
-          <h4>Σέρβις Κλιματισμού</h4>
-          <div class="details">Συντήρηση και επισκευή συστήματος κλιματισμού.</div>
+          <img src="images/icon-ac.png" alt="<?= t('index.service.ac') ?>" />
+          <h4><?= t('index.service.ac') ?></h4>
+          <div class="details"><?= t('services.ac_detail') ?></div>
         </div>
         <div class="service-card">
-          <img src="images/icon-battery.png" alt="Μπαταρίες & Ηλεκτρικά" />
-          <h4>Μπαταρίες & Ηλεκτρικά</h4>
-          <div class="details">Έλεγχος και αντικατάσταση μπαταριών και ηλεκτρικών συστημάτων.</div>
+          <img src="images/icon-battery.png" alt="<?= t('index.service.battery') ?>" />
+          <h4><?= t('index.service.battery') ?></h4>
+          <div class="details"><?= t('services.battery_detail') ?></div>
         </div>
         <div class="service-card">
-          <img src="images/icon-inspection.png" alt="Διαγνωστικός Έλεγχος" />
-          <h4>Διαγνωστικός Έλεγχος</h4>
-          <div class="details">Πλήρης διαγνωστικός έλεγχος για το αυτοκίνητό σας.</div>
+          <img src="images/icon-inspection.png" alt="<?= t('index.service.inspection') ?>" />
+          <h4><?= t('index.service.inspection') ?></h4>
+          <div class="details"><?= t('services.inspection_detail') ?></div>
         </div>
       </div>
     </div>

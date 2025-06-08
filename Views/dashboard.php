@@ -11,7 +11,7 @@ if (!function_exists('renderCalendar')) {
         $firstDay = mktime(0,0,0,$month,1,$year);
         $daysInMonth = date('t', $firstDay);
         $dayOfWeek = date('w', $firstDay);
-        $weekDays = ['Κυρ','Δευ','Τρι','Τετ','Πεμ','Παρ','Σαβ'];
+        $weekDays = [t('cal.sun'), t('cal.mon'), t('cal.tue'), t('cal.wed'), t('cal.thu'), t('cal.fri'), t('cal.sat')];
         $html  = '<table class="calendar-table"><thead><tr>';
         foreach ($weekDays as $wd) {
             $html .= "<th>{$wd}</th>";
@@ -41,7 +41,7 @@ if (!function_exists('renderCalendar')) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="el">
+<html lang="<?= $lang ?>">
 <head>
   <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
@@ -54,12 +54,12 @@ if (!function_exists('renderCalendar')) {
   <section class="hero-background dashboard-hero">
     <div class="hero-overlay"></div>
     <div class="container">
-      <h3 class="welcome-message">Καλωσήρθες, <?= htmlspecialchars($username) ?>!</h3>
+      <h3 class="welcome-message"><?= sprintf(t('dashboard.welcome'), htmlspecialchars($username)) ?></h3>
       <div class="dashboard-actions-box">
-        <button onclick="location.href='users.php'">Διαχείριση Χρηστών</button>
-        <button onclick="location.href='cars.php'">Διαχείριση Αυτοκινήτων</button>
-        <button onclick="location.href='appointments.php'">Διαχείριση Ραντεβού</button>
-        <button onclick="location.href='add_menu.php'">Νέα Προσθήκη</button>
+        <button onclick="location.href='users.php'"><?= t('dashboard.manage_users') ?></button>
+        <button onclick="location.href='cars.php'"><?= t('dashboard.manage_cars') ?></button>
+        <button onclick="location.href='appointments.php'"><?= t('dashboard.manage_appointments') ?></button>
+        <button onclick="location.href='add_menu.php'"><?= t('dashboard.add_new') ?></button>
       </div>
       <div class="calendar-container">
         <?= renderCalendar($appointmentsByDate) ?>
