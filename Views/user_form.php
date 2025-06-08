@@ -20,9 +20,12 @@
   </style>
 </head>
 <body>
-  <button type="button" onclick="history.back()">← Επιστροφή</button>
+  <?php include __DIR__ . '/../public/inc/header.php'; ?>
+  <section class="hero-background">
+    <div class="container">
+      <p><button type="button" onclick="history.back()">← Επιστροφή</button></p>
 
-  <h1>Edit User #<?php echo htmlspecialchars($user['id']); ?></h1>
+      <h1>Edit User #<?php echo htmlspecialchars($user['id']); ?></h1>
 
   <?php if (!empty($_SESSION['success'])): ?>
     <p style="color:green;"><?php echo htmlspecialchars($_SESSION['success']); ?></p>
@@ -101,5 +104,8 @@
       <button type="button" onclick="history.back()">Cancel</button>
     </div>
   </form>
+    </div>
+  </section>
+  <?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>

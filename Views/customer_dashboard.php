@@ -1,17 +1,30 @@
 <?php
 // views/customer_dashboard.php
-// Υποθέτουμε ότι πριν από εδώ έχεις κάνει include του inc/header.php
-// και έχει οριστεί $username, $appointmentsByDate κλπ.
+// Το public/dashboard.php έχει ήδη συμπεριλάβει το header
 ?>
-
-<h3>Καλώς ήρθες, <?= htmlspecialchars($username) ?>!</h3>
-
-<!-- nav buttons, σαν του admin αλλά μόνο με τα 3 δικά σου -->
-<div class="dashboard-nav" style="margin: 1em 0;">
-    <a href="cars.php"><button>Διαχείριση Αυτοκινήτων</button></a>
-    <a href="appointments.php"><button>Διαχείριση Ραντεβού</button></a>
-    <a href="add_menu.php"><button>Νέα Προσθήκη</button></a>
-</div>
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Πελάτη</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <?php include __DIR__ . '/../public/inc/header.php'; ?>
+  <section class="hero-background dashboard-hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <h3 class="welcome-message">Καλώς ήρθες, <?= htmlspecialchars($username) ?>!</h3>
+      <div class="dashboard-actions-box">
+        <button onclick="location.href='cars.php'">Διαχείριση Αυτοκινήτων</button>
+        <button onclick="location.href='appointments.php'">Διαχείριση Ραντεβού</button>
+        <button onclick="location.href='add_menu.php'">Νέα Προσθήκη</button>
+      </div>
+    </div>
+  </section>
+  <?php include __DIR__ . '/../public/inc/footer.php'; ?>
+</body>
+</html>
 
 
 

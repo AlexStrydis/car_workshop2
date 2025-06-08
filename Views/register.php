@@ -1,52 +1,43 @@
+<?php
+require_once '../config/app.php';
+$token = generateCsrfToken();
+?>
+
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Register | Car Workshop</title>
-  <!-- Φόρτωση του γενικού CSS -->
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- Προαιρετικά: Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
-    rel="stylesheet"
-  >
+  <meta charset="UTF-8">
+  <title>Register</title>
 </head>
 <body>
+  <!-- Add Car Workshop logo at the top-left corner -->
+  <header style="position: absolute; top: 0; left: 0; width: 100%; display: flex; align-items: center; padding: 10px; background: none;">
+    <div style="margin-left: 10px;">
+      <img src="images/logo.png" alt="Car Workshop Logo" style="height: 80px;">
+    </div>
+  </header>
 
-  <!--==============================
-    =         HERO SECTION         =
-  ==============================-->
-  <section class="hero-section">
-    <!-- Overlay κάτω από το φόντο -->
-    <div class="hero-overlay"></div>
+  <!-- Adding 'Car Workshop' title to the register view -->
+  <div class="workshop-title" style="position: absolute; right: 30px; top: 35px;">
+    <h1 style="font-size: 1.5rem; color: #f1c40f;">Car Workshop</h1>
+  </div>
 
-    <!-- Κεντρικό πλαίσιο φόρμας -->
-    <div class="hero-content auth-container">
-      <!-- Τίτλος -->
-      <h1 style="color: #f1c40f; margin-bottom: 20px; text-align: center;">
-        Εγγραφή Νέου Χρήστη
-      </h1>
-
-      <!-- Εμφάνιση τυχόν μηνύματος λάθους -->
-      <?php if (!empty($_SESSION['error'])): ?>
-        <div class="alert alert-error">
-          <?= htmlspecialchars($_SESSION['error']) ?>
-        </div>
-        <?php unset($_SESSION['error']); ?>
-      <?php endif; ?>
-
-      <!-- Η ίδια η φόρμα Εγγραφής -->
-      <form method="post" action="register.php" novalidate>
+  <section class="hero-background">
+    <div class="register-container" style="background-color: rgba(0, 0, 0, 0.8); padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); width: 100%; max-width: 400px; margin-bottom: 20px;">
+      <h2 class="register-title" style="color: #f1c40f; text-align: center; margin-bottom: 20px;">Εγγραφή</h2>
+      <form method="post" action="register.php" style="display: flex; flex-direction: column; gap: 15px;">
         <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>">
 
-        <!-- Username -->
-        <div class="form-group">
-          <label for="username">Username</label>
+        <!-- Adjust error message logic to persist for respective fields -->
+        <?php
+          $errorMessages = $_SESSION['errors'] ?? [];
+        ?>
+
+        <!-- Username: required, minlength=4, pattern αλφαριθμητικά -->
+        <label style="color: #ffffff;">
+          Username:
           <input
-            id="username"
             name="username"
             type="text"
             minlength="4"
@@ -54,67 +45,89 @@
             title="Τουλάχιστον 4 χαρακτήρες. Μόνο λατινικοί χαρακτήρες και αριθμοί."
             required
             value="<?= htmlspecialchars($_SESSION['old']['username'] ?? '') ?>"
-          >
-        </div>
+            style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+          <?php
+            if (!empty($errorMessages['username'])) {
+                echo '<span style="color:red; font-size:12px;">' . htmlspecialchars($errorMessages['username']) . '</span>';
+            }
+          ?>
+        </label>
 
-        <!-- Password -->
-        <div class="form-group">
-          <label for="password">Password</label>
+        <!-- Password: required, minlength=8, pattern γράμμα + αριθμός -->
+        <label style="color: #ffffff;">
+          Password:
           <input
-            id="password"
             type="password"
             name="password"
             minlength="8"
             pattern="(?=.*[A-Za-z])(?=.*\d).{8,}"
-            title="Τουλάχιστον 8 χαρακτήρες, με τουλάχιστον ένα γράμμα και έναν αριθμό."
+            title="Τουλάχιστον 8 χαρακτήρες, με ένα γράμμα και έναν αριθμό."
             required
-          >
-        </div>
+            value="<?= htmlspecialchars($_SESSION['old']['password'] ?? '') ?>"
+            style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+          <?php
+            if (!empty($errorMessages['password'])) {
+                echo '<span style="color:red; font-size:12px;">' . htmlspecialchars($errorMessages['password']) . '</span>';
+            }
+          ?>
+        </label>
 
-        <!-- First Name -->
-        <div class="form-group">
-          <label for="first_name">First name</label>
+        <!-- First Name: required -->
+        <label style="color: #ffffff;">
+          First name:
           <input
-            id="first_name"
             name="first_name"
             type="text"
             minlength="1"
             required
             value="<?= htmlspecialchars($_SESSION['old']['first_name'] ?? '') ?>"
-          >
-        </div>
+            style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+          <?php
+            if (!empty($errorMessages['first_name'])) {
+                echo '<span style="color:red; font-size:12px;">' . htmlspecialchars($errorMessages['first_name']) . '</span>';
+            }
+          ?>
+        </label>
 
-        <!-- Last Name -->
-        <div class="form-group">
-          <label for="last_name">Last name</label>
+        <!-- Last Name: required -->
+        <label style="color: #ffffff;">
+          Last name:
           <input
-            id="last_name"
             name="last_name"
             type="text"
             minlength="1"
             required
             value="<?= htmlspecialchars($_SESSION['old']['last_name'] ?? '') ?>"
-          >
-        </div>
+            style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+          <?php
+            if (!empty($errorMessages['last_name'])) {
+                echo '<span style="color:red; font-size:12px;">' . htmlspecialchars($errorMessages['last_name']) . '</span>';
+            }
+          ?>
+        </label>
 
-        <!-- Identity Number -->
-        <div class="form-group">
-          <label for="identity_number">Identity no.</label>
+        <!-- Identity Number: required, pattern 2 γράμματα + 6 ψηφία -->
+        <label style="color: #ffffff;">
+          Identity no.:
           <input
-            id="identity_number"
             name="identity_number"
             type="text"
             pattern="[A-Za-z]{2}[0-9]{6}"
             title="2 γράμματα (A–Z) ακολουθούμενα από 6 ψηφία."
             required
             value="<?= htmlspecialchars($_SESSION['old']['identity_number'] ?? '') ?>"
-          >
-        </div>
+            style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+          <?php
+            if (!empty($errorMessages['identity_number'])) {
+                echo '<span style="color:red; font-size:12px;">' . htmlspecialchars($errorMessages['identity_number']) . '</span>';
+            }
+          ?>
+        </label>
 
-        <!-- Role -->
-        <div class="form-group">
-          <label for="role">Role</label>
-          <select id="role" name="role" required>
+        <!-- Role: required -->
+        <label style="color: #ffffff;">
+          Role:
+          <select name="role" id="role" required style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
             <option value="">-- Επιλέξτε --</option>
             <option value="customer"
               <?= (($_SESSION['old']['role'] ?? '') === 'customer') ? 'selected' : '' ?>>
@@ -125,112 +138,126 @@
               Mechanic
             </option>
           </select>
-        </div>
+          <?php
+            if (!empty($errorMessages['role'])) {
+                echo '<span style="color:red; font-size:12px;">' . htmlspecialchars($errorMessages['role']) . '</span>';
+            }
+          ?>
+        </label>
 
-        <!-- Extra πεδία (φορούν είτε customer, είτε mechanic) -->
-        <div id="extra-fields">
+        <!-- Extra πεδία ανάλογα με το Role -->
+        <div id="extra" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
           <?php if (($_SESSION['old']['role'] ?? '') === 'customer'): ?>
-            <!-- Tax ID -->
-            <div class="form-group">
-              <label for="tax_id">Tax ID</label>
+            <!-- Tax ID: required, pattern 9 ψηφία -->
+            <label style="color: #ffffff; margin-bottom: 15px;">
+              Tax ID:
               <input
-                id="tax_id"
                 name="tax_id"
                 type="text"
                 pattern="\d{9}"
                 title="Ακριβώς 9 ψηφία."
                 required
                 value="<?= htmlspecialchars($_SESSION['old']['tax_id'] ?? '') ?>"
-              >
-            </div>
-            <!-- Address -->
-            <div class="form-group">
-              <label for="address">Address</label>
+                style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+              <?php
+                if (!empty($errorMessages['tax_id'])) {
+                    echo '<span style="color:red; font-size:12px;">' . htmlspecialchars($errorMessages['tax_id']) . '</span>';
+                }
+              ?>
+            </label>
+            <!-- Address: required -->
+            <label style="color: #ffffff; margin-bottom: 15px;">
+              Address:
               <input
-                id="address"
                 name="address"
                 type="text"
                 minlength="1"
                 required
                 value="<?= htmlspecialchars($_SESSION['old']['address'] ?? '') ?>"
-              >
-            </div>
+                style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+              <?php
+                if (!empty($errorMessages['address'])) {
+                    echo '<span style="color:red; font-size:12px;">' . htmlspecialchars($errorMessages['address']) . '</span>';
+                }
+              ?>
+            </label>
           <?php elseif (($_SESSION['old']['role'] ?? '') === 'mechanic'): ?>
-            <!-- Specialty -->
-            <div class="form-group">
-              <label for="specialty">Specialty</label>
+            <!-- Specialty: required -->
+            <label style="color: #ffffff; margin-bottom: 15px;">
+              Specialty:
               <input
-                id="specialty"
                 name="specialty"
                 type="text"
                 minlength="1"
                 required
                 value="<?= htmlspecialchars($_SESSION['old']['specialty'] ?? '') ?>"
-              >
-            </div>
+                style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+              <?php
+                if (!empty($errorMessages['specialty'])) {
+                    echo '<span style="color:red; font-size:12px;">' . htmlspecialchars($errorMessages['specialty']) . '</span>';
+                }
+              ?>
+            </label>
           <?php endif; ?>
         </div>
 
-        <!-- Κουμπί Register -->
-        <div style="text-align: center; margin-top: 20px;">
-          <button type="submit" class="btn btn-primary">Register</button>
-          <button type="button" onclick="history.back()">Cancel</button>
-        </div>
+        <button type="submit" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">Εγγραφή</button>
       </form>
 
-      <?php
-        // Καθαρίζουμε το old data για να μην μένει στο session
-        unset($_SESSION['old']);
-      ?>
+      <!-- Adjusting login prompt with white text and smaller button -->
+      <div class="navigation-buttons" style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+        <a href="../public/index.php" class="btn-secondary" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">Πίσω στην Αρχική</a>
+        <p style="color: #ffffff; margin-top: 10px;">Έχεις ήδη λογαριασμό; Κάνε σύνδεση τώρα</p>
+        <a href="../public/login.php" class="btn-primary" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">Σύνδεση</a>
+      </div>
     </div>
   </section>
 
-  <!-- Λίγο JavaScript για να φορτώνουμε δυναμικά τα πεδία extra -->
   <script>
-    const extra = document.getElementById('extra-fields');
+    const extra = document.getElementById('extra');
     const roleSelect = document.getElementById('role');
+    const oldTaxId = <?= json_encode($_SESSION['old']['tax_id'] ?? '') ?>;
+    const oldAddress = <?= json_encode($_SESSION['old']['address'] ?? '') ?>;
+    const oldSpecialty = <?= json_encode($_SESSION['old']['specialty'] ?? '') ?>;
 
     function updateExtraFields() {
       extra.innerHTML = '';
       if (roleSelect.value === 'customer') {
         extra.innerHTML = `
-          <div class="form-group">
-            <label for="tax_id">Tax ID</label>
+          <label style="color: #ffffff; margin-bottom: 15px;">
+            Tax ID:
             <input
-              id="tax_id"
               name="tax_id"
               type="text"
               pattern="\\d{9}"
               title="Ακριβώς 9 ψηφία."
               required
-              value="${<?= json_encode($_SESSION['old']['tax_id'] ?? '') ?>}"
-            >
-          </div>
-          <div class="form-group">
-            <label for="address">Address</label>
+              value="${oldTaxId}"
+              style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+          </label>
+          <label style="color: #ffffff; margin-bottom: 15px;">
+            Address:
             <input
-              id="address"
               name="address"
               type="text"
               minlength="1"
               required
-              value="${<?= json_encode($_SESSION['old']['address'] ?? '') ?>}"
-            >
-          </div>
+              value="${oldAddress}"
+              style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+          </label>
         `;
       } else if (roleSelect.value === 'mechanic') {
         extra.innerHTML = `
-          <div class="form-group">
-            <label for="specialty">Specialty</label>
+          <label style="color: #ffffff; margin-bottom: 15px;">
+            Specialty:
             <input
-              id="specialty"
               name="specialty"
               type="text"
               minlength="1"
               required
-              value="${<?= json_encode($_SESSION['old']['specialty'] ?? '') ?>}"
-            >
-          </div>
+              value="${oldSpecialty}"
+              style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
+          </label>
         `;
       }
     }
@@ -238,5 +265,12 @@
     roleSelect.addEventListener('change', updateExtraFields);
     updateExtraFields();
   </script>
+
+  <?php
+    // Μετά την αποτύπωση των πεδίων στο view, καθαρίζουμε τα δεδομένα
+    unset($_SESSION['errors']);
+    unset($_SESSION['old']);
+  ?>
+  
 </body>
 </html>
