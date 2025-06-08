@@ -1154,6 +1154,7 @@ tr:nth-child(odd) {
 /* 2) Hero image μεγαλύτερη */
 .dashboard-hero {
   background: url('../images/hero-bg.jpg') center center/cover no-repeat;
+  height: 40vh;
   min-height: 40vh;
   position: relative;
   margin-bottom: 30px;
@@ -1213,7 +1214,8 @@ tr:nth-child(odd) {
 /* Hero κάτω από το header */
 .dashboard-hero {
   background: url('../images/hero-bg.jpg') center center/cover no-repeat;
-  min-height: 35vh;
+  height: 40vh;
+  min-height: 40vh;
   position: relative;
   margin-bottom: 30px;
 }
@@ -1317,7 +1319,8 @@ tr:nth-child(odd) {
 /* Hero image */
 .dashboard-hero {
   background: url('../images/hero-bg.jpg') center/cover no-repeat;
-  min-height: 35vh;
+  height: 40vh;
+  min-height: 40vh;
   position: relative;
   margin-bottom: 30px;
 }
