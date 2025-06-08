@@ -20,24 +20,31 @@ if (!in_array($role, ['secretary', 'customer'], true)) {
 <head>
   <meta charset="UTF-8">
   <title>Νέα Προσθήκη</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <p><a href="dashboard.php">← Επιστροφή στο Dashboard</a></p>
-  <h1>Νέα Προσθήκη</h1>
+  <?php include __DIR__ . '/inc/header.php'; ?>
+  <section class="hero-background">
+    <div class="container">
+      <p><a href="dashboard.php">← Επιστροφή στο Dashboard</a></p>
+      <h1>Νέα Προσθήκη</h1>
 
-  <ul>
-    <?php if ($role === 'secretary'): ?>
-    <li>
-      <a href="create_user.php">➤ Προσθήκη Νέου Χρήστη</a>
-    </li>
-    <?php endif; ?>
+      <ul>
+        <?php if ($role === 'secretary'): ?>
+        <li>
+          <a href="create_user.php">➤ Προσθήκη Νέου Χρήστη</a>
+        </li>
+        <?php endif; ?>
 
-    <li>
-      <a href="create_car.php">➤ Προσθήκη Νέου Αυτοκινήτου</a>
-    </li>
-    <li>
-      <a href="create_appointment.php">➤ Προσθήκη Νέου Ραντεβού</a>
-    </li>
-  </ul>
+        <li>
+          <a href="create_car.php">➤ Προσθήκη Νέου Αυτοκινήτου</a>
+        </li>
+        <li>
+          <a href="create_appointment.php">➤ Προσθήκη Νέου Ραντεβού</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <?php include __DIR__ . '/inc/footer.php'; ?>
 </body>
 </html>
