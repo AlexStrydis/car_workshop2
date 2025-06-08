@@ -3,10 +3,10 @@
 // Το public/dashboard.php έχει ήδη συμπεριλάβει το header
 ?>
 <!DOCTYPE html>
-<html lang="el">
+<html lang="<?= $lang ?>">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard Πελάτη</title>
+  <title><?= htmlspecialchars($pageTitle) ?></title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,11 +14,11 @@
   <section class="hero-background dashboard-hero">
     <div class="hero-overlay"></div>
     <div class="container">
-      <h3 class="welcome-message">Καλώς ήρθες, <?= htmlspecialchars($username) ?>!</h3>
+      <h3 class="welcome-message"><?= sprintf(t('dashboard.welcome'), htmlspecialchars($username)) ?></h3>
       <div class="dashboard-actions-box">
-        <button onclick="location.href='cars.php'">Διαχείριση Αυτοκινήτων</button>
-        <button onclick="location.href='appointments.php'">Διαχείριση Ραντεβού</button>
-        <button onclick="location.href='add_menu.php'">Νέα Προσθήκη</button>
+        <button onclick="location.href='cars.php'"><?= t('dashboard.manage_cars') ?></button>
+        <button onclick="location.href='appointments.php'"><?= t('dashboard.manage_appointments') ?></button>
+        <button onclick="location.href='add_menu.php'"><?= t('dashboard.add_new') ?></button>
       </div>
     </div>
   </section>

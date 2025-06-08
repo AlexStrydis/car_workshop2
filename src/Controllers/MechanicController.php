@@ -32,6 +32,6 @@ class MechanicController {
         $tasks = $this->taskM->getByMechanic($mechanicId, $today);
 
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/mechanic_dashboard.php';
+        include __DIR__ . '/../../Views/mechanic_dashboard.php';
     }
 }
