@@ -54,7 +54,7 @@ class CarController {
         unset($c);
 
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/cars.php';
+        include __DIR__ . '/../../Views/cars.php';
     }
 
     /**
@@ -73,7 +73,7 @@ class CarController {
     $users = [];
 }
 
-include __DIR__ . '/../../views/car_form.php';
+include __DIR__ . '/../../Views/car_form.php';
 
     }
 
@@ -192,7 +192,7 @@ include __DIR__ . '/../../views/car_form.php';
             $owners = [];
         }
 
-        include __DIR__ . '/../../views/car_form.php';
+        include __DIR__ . '/../../Views/car_form.php';
     }
 
     /**

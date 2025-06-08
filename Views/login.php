@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="el">
+<?php require_once '../config/lang.php'; ?>
+<html lang="<?= $lang ?>">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +20,7 @@
   </div>
   <section class="hero-background">
     <div class="login-container" style="background-color: rgba(0, 0, 0, 0.8); padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); width: 100%; max-width: 400px;">
-      <h2 class="login-title" style="color: #f1c40f; text-align: center; margin-bottom: 20px;">Σύνδεση</h2>
+      <h2 class="login-title" style="color: #f1c40f; text-align: center; margin-bottom: 20px;"><?= t('nav.login') ?></h2>
       <form method="POST" action="../public/login.php" class="login-form" style="display: flex; flex-direction: column; gap: 15px;">
         <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>">
         <div class="form-group" style="display: flex; flex-direction: column;">
@@ -30,16 +31,22 @@
           <label for="password" style="color: #ffffff; margin-bottom: 5px;">Κωδικός:</label>
           <input type="password" id="password" name="password" required style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
         </div>
-        <button type="submit" class="btn-primary" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">Σύνδεση</button>
+        <button type="submit" class="btn-primary" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">
+          <?= t('nav.login') ?>
+        </button>
       </form>
       <?php if (!empty($_SESSION['error'])): ?>
         <p class="error-message" style="color: #e74c3c; text-align: center; margin-top: 15px;"><?= htmlspecialchars($_SESSION['error']) ?></p>
       <?php endif; ?>
       <!-- Add buttons for navigation -->
       <div class="navigation-buttons" style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
-        <a href="../public/index.php" class="btn-secondary" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">Πίσω στην Αρχική</a>
+        <a href="../public/index.php" class="btn-secondary" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">
+          <?= t('nav.home') ?>
+        </a>
         <p style="color: #ffffff; margin-top: 10px;">Δεν έχεις λογαριασμό; Κάνε εγγραφή τώρα</p>
-        <a href="../public/register.php" class="btn-primary" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">Εγγραφή</a>
+        <a href="../public/register.php" class="btn-primary" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">
+          <?= t('nav.register') ?>
+        </a>
       </div>
     </div>
   </section>

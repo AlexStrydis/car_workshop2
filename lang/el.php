@@ -1,0 +1,38 @@
+<?php
+return [
+    'nav.dashboard' => 'Πίνακας Ελέγχου',
+    'nav.home' => 'Αρχική',
+    'nav.about' => 'Σχετικά',
+    'nav.services' => 'Υπηρεσίες',
+    'nav.contact' => 'Επικοινωνία',
+    'nav.register' => 'Εγγραφή',
+    'nav.login' => 'Login',
+    'nav.logout' => 'Αποσύνδεση',
+    'header.title' => 'Car Workshop',
+    'footer.contact' => 'Επικοινωνία',
+    'footer.quick_links' => 'Γρήγοροι Σύνδεσμοι',
+    'footer.follow_us' => 'Ακολούθησε Μας',
+    'footer.all_rights' => '&copy; 2025 Car Workshop – All Rights Reserved.',
+
+    'index.tagline' => 'Βρες τον καλύτερο μηχανικό για το αυτοκίνητό σου',
+    'index.subtitle' => 'Εξειδικευμένες υπηρεσίες service & καθαρισμού, αξιόπιστα ανταλλακτικά και προσωπική εξυπηρέτηση.',
+    'index.register_now' => 'Εγγραφή Τώρα',
+    'index.login' => 'Login',
+    'index.about_title' => 'Για εμάς',
+    'index.about_text1' => 'Στο Car Workshop, πάνω από 10 χρόνια εμπειρίας στην επισκευή και την συντήρηση αυτοκινήτων.',
+    'index.feature.mechanics' => 'Έμπειροι Μηχανικοί',
+    'index.feature.quick' => 'Γρήγορη Εξυπηρέτηση',
+    'index.feature.guarantee' => 'Εγγύηση Εργασίας',
+    'index.services_title' => 'Οι Υπηρεσίες μας',
+    'index.services_link' => 'Δες Όλες τις Υπηρεσίες',
+
+    'contact.title' => 'Επικοινωνία',
+    'contact.name' => 'Όνομα:',
+    'contact.email' => 'Email:',
+    'contact.subject' => 'Θέμα:',
+    'contact.message' => 'Μήνυμα:',
+    'contact.send' => 'Αποστολή Μηνύματος',
+
+    'about.title' => 'Σχετικά με το Car Workshop',
+    'services.title' => 'Οι Υπηρεσίες μας',
+];

@@ -33,6 +33,6 @@ class CustomerController {
         ]);
 
         $token = generateCsrfToken();
-        include __DIR__ . '/../../views/customer_dashboard.php';
+        include __DIR__ . '/../../Views/customer_dashboard.php';
     }
 }
