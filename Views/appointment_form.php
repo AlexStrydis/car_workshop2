@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
   <title><?= isset($appt) ? 'Edit Appointment' : 'New Appointment' ?></title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <p>
-    <button type="button" onclick="history.back()">← Επιστροφή</button>
-  </p>
+  <?php include __DIR__ . '/../public/inc/header.php'; ?>
+  <section class="hero-background">
+    <div class="container">
+      <p>
+        <button type="button" onclick="history.back()">← Επιστροφή</button>
+      </p>
 
   <?php if (!empty($_SESSION['error'])): ?>
     <p style="color:red"><?= htmlspecialchars($_SESSION['error']) ?></p>
@@ -19,8 +22,9 @@
     <?php unset($_SESSION['success']); ?>
   <?php endif; ?>
 
-  <form method="post"
-        action="<?= isset($appt) ? 'edit_appointment.php' : 'create_appointment.php' ?>">
+      <form method="post"
+        action="<?= isset($appt) ? 'edit_appointment.php' : 'create_appointment.php' ?>"
+        class="appointment-form">
     <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>">
     <?php if (isset($appt)): ?>
       <input type="hidden" name="id" value="<?= (int)$appt['id'] ?>">
@@ -172,7 +176,7 @@
     <button type="button" onclick="history.back()">Cancel</button>
   </form>
 
-  <script>
+      <script>
     const reasonEl = document.getElementById('reason');
     const problemEl = document.getElementById('problem_description');
     function updateProblemRequirement() {
@@ -187,5 +191,8 @@
   </script>
 
   <?php unset($_SESSION['old_appt']); ?>
+    </div>
+  </section>
+  <?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>

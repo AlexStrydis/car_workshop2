@@ -4,7 +4,10 @@
   <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8"><title>Τα Ραντεβού μου</title></head>
 <body>
-  <h1>Ραντεβού Μηχανικού</h1>
+  <?php include __DIR__ . '/../public/inc/header.php'; ?>
+  <section class="hero-background">
+    <div class="container">
+      <h1>Ραντεβού Μηχανικού</h1>
 
   <?php if(!empty($_SESSION['success'])): ?>
     <p style="color:green"><?=htmlspecialchars($_SESSION['success'])?></p>
@@ -19,7 +22,7 @@
     <button type="submit">Φιλτράρισμα</button>
   </form>
   
-  <table border="1" cellpadding="5">
+  <table class="data-table">
     <tr>
       <th>Ημερομηνία</th><th>Ώρα</th><th>Κατάσταση</th>
       <th>Πελάτης</th><th>Αυτοκίνητο</th><th>Ενέργεια</th>
@@ -52,5 +55,8 @@
   </table>
 
   <button type="button" onclick="history.back()">Επιστροφή</button>
+    </div>
+  </section>
+  <?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>

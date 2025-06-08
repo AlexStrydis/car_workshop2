@@ -7,46 +7,39 @@
   <meta charset="UTF-8" />
   <title>Car Workshop | Αρχική</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Φόρτωση του γενικού CSS -->
   <link rel="stylesheet" href="css/style.css" />
-  <!-- Προαιρετικά: Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
     rel="stylesheet"
   />
+  <style>
+    .btn-primary {
+      font-size: 0.7rem;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background-color: #f1c40f;
+      color: #fff;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
   <!--==============================
     =            HEADER            =
   ==============================-->
-  <header class="site-header">
-    <div class="container header-container">
-      <div class="logo">
-        <!-- Αν έχεις λογότυπο, βάλε <img src="images/logo.png" alt="Car Workshop"> 
-             αλλιώς απλά γράψε το όνομα: -->
-        <h1>Car Workshop</h1>
-      </div>
-      <nav class="site-nav">
-        <a href="index.php">Αρχική</a>
-        <a href="about.php">Σχετικά</a>
-        <a href="services.php">Υπηρεσίες</a>
-        <a href="contact.php">Επικοινωνία</a>
-        <a href="register.php" class="btn-register ml-10">Εγγραφή</a>
-        <a href="login.php" class="btn-login ml-10">Login</a>
-      </nav>
-    </div>
-  </header>
+  <?php include __DIR__ . '/inc/header.php'; ?>
 
   <!--==============================
     =         HERO SECTION         =
   ==============================-->
-  <section class="hero-section">
-    <div class="hero-overlay"></div>
+  <section class="hero-section hero-background">
     <div class="hero-content container">
       <h2 class="hero-title">Βρες τον καλύτερο μηχανικό για το αυτοκίνητό σου</h2>
       <p class="hero-subtitle">
-        Εξειδικευμένες υπηρεσίες service &amp; καθαρισμού, αξιόπιστα ανταλλακτικά
+        Εξειδικευμένες υπηρεσίες service & καθαρισμού, αξιόπιστα ανταλλακτικά
         και προσωπική εξυπηρέτηση.
       </p>
       <div class="hero-cta">
@@ -59,14 +52,14 @@
   <!--==============================
     =        ABOUT SECTION         =
   ==============================-->
-  <section class="about-section">
+  <section class="about-section hero-background">
     <div class="container">
       <h2>Για εμάς</h2>
       <p class="lead">
         Στο Car Workshop, πάνω από 10 χρόνια εμπειρίας στην επισκευή και την
         συντήρηση αυτοκινήτων. Είμαστε ΑΣΕ πιστοποιημένοι μηχανικοί που
         νοιαζόμαστε πραγματικά για την ασφάλειά σας στο δρόμο. Κάθε όχημα
-        αντιμετωπίζεται σαν να ήταν δικό μας. 
+        αντιμετωπίζεται σαν να ήταν δικό μας.
       </p>
       <div class="features-grid">
         <div class="feature-card">
@@ -98,7 +91,7 @@
   <!--==============================
     =       SERVICES SECTION       =
   ==============================-->
-  <section class="services-section">
+  <section class="services-section hero-background">
     <div class="container">
       <h2>Οι Υπηρεσίες μας</h2>
       <p class="lead">
@@ -124,7 +117,7 @@
         </div>
         <div class="service-card">
           <img src="images/icon-battery.png" alt="Battery Service" />
-          <h4>Μπαταρίες &amp; Ηλεκτρικά</h4>
+          <h4>Μπαταρίες & Ηλεκτρικά</h4>
         </div>
         <div class="service-card">
           <img src="images/icon-inspection.png" alt="Diagnostics" />
@@ -132,7 +125,7 @@
         </div>
       </div>
       <div class="text-center mt-10">
-          <a href="services.php" class="btn btn-primary">Δες Όλες τις Υπηρεσίες</a>
+        <a href="services.php" class="btn-primary">Δες Όλες τις Υπηρεσίες</a>
       </div>
     </div>
   </section>
@@ -140,39 +133,16 @@
   <!--==============================
     =       CONTACT / FOOTER        =
   ==============================-->
-  <footer class="site-footer">
-    <div class="container footer-container">
-      <div class="footer-col">
-        <h4>Επικοινωνία</h4>
-        <p>
-          📍 Οδός Γοργύρας, Κτήριο Λυμπέρη, Νέο Καρλόβασι<br />
-          📞 Κλήση: 2273082200<br />
-          ✉️ Email: gramicsd@icsd.aegean.gr
-        </p>
-        <p>Ωράριο: Δευτέρα‐Σάββατο</p>
-        <p>08:00–16:00</p>
-      </div>
-      <div class="footer-col">
-        <h4>Γρήγοροι Σύνδεσμοι</h4>
-        <ul>
-          <li><a href="index.php">Αρχική</a></li>
-          <li><a href="about.php">Σχετικά</a></li>
-          <li><a href="services.php">Υπηρεσίες</a></li>
-          <li><a href="contact.php">Επικοινωνία</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Ακολούθησε Μας</h4>
-        <p>
-          <a href="#">Facebook</a><br />
-          <a href="#">Instagram</a><br />
-          <a href="#">LinkedIn</a>
-        </p>
-      </div>
-    </div>
-    <div class="footer-bottom text-center">
-      &copy; 2025 Car Workshop – All Rights Reserved.
-    </div>
-  </footer>
+  <?php include __DIR__ . '/inc/footer.php'; ?>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginButton = document.querySelector('.btn-login');
+      const registerButton = document.querySelector('.btn-register');
+
+      if (loginButton) loginButton.style.display = 'none';
+      if (registerButton) registerButton.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
