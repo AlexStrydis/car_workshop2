@@ -48,7 +48,7 @@ $pageTitle = 'Όλες οι Εργασίες Μου';
 </head>
 <body>
 <?php include __DIR__ . '/inc/header.php'; ?>
-<?php include __DIR__ . '/../views/all_tasks.php'; ?>
+<?php include __DIR__ . '/../Views/all_tasks.php'; ?>
 <?php include __DIR__ . '/inc/footer.php'; ?>
 </body>
 </html>
