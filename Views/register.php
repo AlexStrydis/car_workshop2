@@ -1,14 +1,16 @@
+
 <?php
 require_once '../config/app.php';
 $token = generateCsrfToken();
+require_once '../config/lang.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="el">
+<html lang="<?= $lang ?>">
 <head>
   <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
-  <title>Register</title>
+  <title><?= t('register.title') ?></title>
 </head>
 <body>
   <!-- Add Car Workshop logo at the top-left corner -->
@@ -25,7 +27,9 @@ $token = generateCsrfToken();
 
   <section class="hero-background">
     <div class="register-container" style="background-color: rgba(0, 0, 0, 0.8); padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); width: 100%; max-width: 400px; margin-bottom: 20px;">
-      <h2 class="register-title" style="color: #f1c40f; text-align: center; margin-bottom: 20px;">Εγγραφή</h2>
+      <h2 class="register-title" style="color: #f1c40f; text-align: center; margin-bottom: 20px;">
+        <?= t('register.title') ?>
+      </h2>
       <form method="post" action="register.php" style="display: flex; flex-direction: column; gap: 15px;">
         <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>">
 
@@ -36,7 +40,7 @@ $token = generateCsrfToken();
 
         <!-- Username: required, minlength=4, pattern αλφαριθμητικά -->
         <label style="color: #ffffff;">
-          Username:
+          <?= t('register.username') ?>
           <input
             name="username"
             type="text"
@@ -55,7 +59,7 @@ $token = generateCsrfToken();
 
         <!-- Password: required, minlength=8, pattern γράμμα + αριθμός -->
         <label style="color: #ffffff;">
-          Password:
+          <?= t('register.password') ?>
           <input
             type="password"
             name="password"
@@ -74,7 +78,7 @@ $token = generateCsrfToken();
 
         <!-- First Name: required -->
         <label style="color: #ffffff;">
-          First name:
+          <?= t('register.first_name') ?>
           <input
             name="first_name"
             type="text"
@@ -91,7 +95,7 @@ $token = generateCsrfToken();
 
         <!-- Last Name: required -->
         <label style="color: #ffffff;">
-          Last name:
+          <?= t('register.last_name') ?>
           <input
             name="last_name"
             type="text"
@@ -108,7 +112,7 @@ $token = generateCsrfToken();
 
         <!-- Identity Number: required, pattern 2 γράμματα + 6 ψηφία -->
         <label style="color: #ffffff;">
-          Identity no.:
+          <?= t('register.identity') ?>
           <input
             name="identity_number"
             type="text"
@@ -126,7 +130,7 @@ $token = generateCsrfToken();
 
         <!-- Role: required -->
         <label style="color: #ffffff;">
-          Role:
+          <?= t('register.role') ?>
           <select name="role" id="role" required style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
             <option value="">-- Επιλέξτε --</option>
             <option value="customer"
@@ -150,7 +154,7 @@ $token = generateCsrfToken();
           <?php if (($_SESSION['old']['role'] ?? '') === 'customer'): ?>
             <!-- Tax ID: required, pattern 9 ψηφία -->
             <label style="color: #ffffff; margin-bottom: 15px;">
-              Tax ID:
+              <?= t('register.tax_id') ?>
               <input
                 name="tax_id"
                 type="text"
@@ -167,7 +171,7 @@ $token = generateCsrfToken();
             </label>
             <!-- Address: required -->
             <label style="color: #ffffff; margin-bottom: 15px;">
-              Address:
+              <?= t('register.address') ?>
               <input
                 name="address"
                 type="text"
@@ -184,7 +188,7 @@ $token = generateCsrfToken();
           <?php elseif (($_SESSION['old']['role'] ?? '') === 'mechanic'): ?>
             <!-- Specialty: required -->
             <label style="color: #ffffff; margin-bottom: 15px;">
-              Specialty:
+              <?= t('register.specialty') ?>
               <input
                 name="specialty"
                 type="text"
@@ -201,14 +205,22 @@ $token = generateCsrfToken();
           <?php endif; ?>
         </div>
 
-        <button type="submit" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">Εγγραφή</button>
+        <button type="submit" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">
+          <?= t('register.title') ?>
+        </button>
       </form>
 
       <!-- Adjusting login prompt with white text and smaller button -->
       <div class="navigation-buttons" style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
-        <a href="../public/index.php" class="btn-secondary" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">Πίσω στην Αρχική</a>
-        <p style="color: #ffffff; margin-top: 10px;">Έχεις ήδη λογαριασμό; Κάνε σύνδεση τώρα</p>
-        <a href="../public/login.php" class="btn-primary" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">Σύνδεση</a>
+        <a href="../public/index.php" class="btn-secondary" style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">
+          <?= t('nav.home') ?>
+        </a>
+        <p style="color: #ffffff; margin-top: 10px;">
+          <?= t('register.have_account') ?>
+        </p>
+        <a href="../public/login.php" class="btn-primary" style="padding: 10px; border: none; border-radius: 5px; background-color: #f1c40f; color: #1f1f1f; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">
+          <?= t('nav.login') ?>
+        </a>
       </div>
     </div>
   </section>
@@ -225,9 +237,9 @@ $token = generateCsrfToken();
       if (roleSelect.value === 'customer') {
         extra.innerHTML = `
           <label style="color: #ffffff; margin-bottom: 15px;">
-            Tax ID:
-            <input
-              name="tax_id"
+            <?= t('register.tax_id') ?>
+          <input
+            name="tax_id"
               type="text"
               pattern="\\d{9}"
               title="Ακριβώς 9 ψηφία."
@@ -236,7 +248,7 @@ $token = generateCsrfToken();
               style="padding: 10px; border: none; border-radius: 5px; background-color: #333; color: #fff;">
           </label>
           <label style="color: #ffffff; margin-bottom: 15px;">
-            Address:
+            <?= t('register.address') ?>
             <input
               name="address"
               type="text"
@@ -249,7 +261,7 @@ $token = generateCsrfToken();
       } else if (roleSelect.value === 'mechanic') {
         extra.innerHTML = `
           <label style="color: #ffffff; margin-bottom: 15px;">
-            Specialty:
+            <?= t('register.specialty') ?>
             <input
               name="specialty"
               type="text"
