@@ -1,8 +1,9 @@
 <?php
 // public/index.php
+require __DIR__ . '/../config/lang.php';
 ?>
 <!DOCTYPE html>
-<html lang="el">
+<html lang="<?= $lang ?>">
 <head>
   <meta charset="UTF-8" />
   <title>Car Workshop | Αρχική</title>
@@ -37,14 +38,13 @@
   ==============================-->
   <section class="hero-section hero-background">
     <div class="hero-content container">
-      <h2 class="hero-title">Βρες τον καλύτερο μηχανικό για το αυτοκίνητό σου</h2>
+      <h2 class="hero-title"><?= t('index.tagline') ?></h2>
       <p class="hero-subtitle">
-        Εξειδικευμένες υπηρεσίες service & καθαρισμού, αξιόπιστα ανταλλακτικά
-        και προσωπική εξυπηρέτηση.
+        <?= t('index.subtitle') ?>
       </p>
       <div class="hero-cta">
-        <a href="register.php" class="btn-register">Εγγραφή Τώρα</a>
-        <a href="login.php" class="btn-login">Login</a>
+        <a href="register.php" class="btn-register"><?= t('index.register_now') ?></a>
+        <a href="login.php" class="btn-login"><?= t('index.login') ?></a>
       </div>
     </div>
   </section>
@@ -54,17 +54,14 @@
   ==============================-->
   <section class="about-section hero-background">
     <div class="container">
-      <h2>Για εμάς</h2>
+      <h2><?= t('index.about_title') ?></h2>
       <p class="lead">
-        Στο Car Workshop, πάνω από 10 χρόνια εμπειρίας στην επισκευή και την
-        συντήρηση αυτοκινήτων. Είμαστε ΑΣΕ πιστοποιημένοι μηχανικοί που
-        νοιαζόμαστε πραγματικά για την ασφάλειά σας στο δρόμο. Κάθε όχημα
-        αντιμετωπίζεται σαν να ήταν δικό μας.
+        <?= t('index.about_text1') ?>
       </p>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">🛠️</div>
-          <h3>Έμπειροι Μηχανικοί</h3>
+          <h3><?= t('index.feature.mechanics') ?></h3>
           <p>
             Όλοι οι μηχανικοί μας είναι ASE-Certified και εκπαιδευμένοι στις
             τελευταίες τεχνολογίες.
@@ -72,14 +69,14 @@
         </div>
         <div class="feature-card">
           <div class="feature-icon">⏱️</div>
-          <h3>Γρήγορη Εξυπηρέτηση</h3>
+          <h3><?= t('index.feature.quick') ?></h3>
           <p>
             Στόχος μας η άμεση επίλυση, χωρίς να θυσιάζουμε την ποιότητα.
           </p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">💯</div>
-          <h3>Εγγύηση Εργασίας</h3>
+          <h3><?= t('index.feature.guarantee') ?></h3>
           <p>
             Όλες οι εργασίες μας συνοδεύονται από 1 έτος / 10.000χλμ εγγύηση.
           </p>
@@ -93,7 +90,7 @@
   ==============================-->
   <section class="services-section hero-background">
     <div class="container">
-      <h2>Οι Υπηρεσίες μας</h2>
+      <h2><?= t('index.services_title') ?></h2>
       <p class="lead">
         Καλύπτουμε οποιαδήποτε ανάγκη συντήρησης ή επισκευής αυτοκινήτου, από
         αλλαγή λαδιών έως και πλήρη ανακατασκευή κινητήρα.
@@ -125,7 +122,7 @@
         </div>
       </div>
       <div class="text-center mt-10">
-        <a href="services.php" class="btn-primary">Δες Όλες τις Υπηρεσίες</a>
+        <a href="services.php" class="btn-primary"><?= t('index.services_link') ?></a>
       </div>
     </div>
   </section>

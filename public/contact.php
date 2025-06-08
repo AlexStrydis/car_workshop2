@@ -1,13 +1,14 @@
 <?php
 require __DIR__ . '/../config/app.php';
+require __DIR__ . '/../config/lang.php';
 $token = generateCsrfToken();
 // public/contact.php
 ?>
 <!DOCTYPE html>
-<html lang="el">
+<html lang="<?= $lang ?>">
 <head>
   <meta charset="UTF-8" />
-  <title>Car Workshop | Επικοινωνία</title>
+  <title>Car Workshop | <?= t('nav.contact') ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Κοινό CSS -->
   <link rel="stylesheet" href="css/style.css" />
@@ -19,7 +20,7 @@ $token = generateCsrfToken();
   <!-- Contact Section -->
   <section class="hero-background">
     <div class="container contact-section">
-      <h2>Επικοινωνία</h2>
+      <h2><?= t('contact.title') ?></h2>
       <?php if(!empty($_SESSION['success'])): ?>
         <p style="color:green;"><?= htmlspecialchars($_SESSION['success']) ?></p>
         <?php unset($_SESSION['success']); ?>
@@ -62,26 +63,26 @@ $token = generateCsrfToken();
             <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>">
 
             <div class="form-group">
-              <label for="name">Όνομα:</label>
+              <label for="name"><?= t('contact.name') ?></label>
               <input type="text" id="name" name="name" required placeholder="Το όνομά σας" />
             </div>
 
             <div class="form-group">
-              <label for="email">Email:</label>
+              <label for="email"><?= t('contact.email') ?></label>
               <input type="email" id="email" name="email" required placeholder="your@email.com" />
             </div>
 
             <div class="form-group">
-              <label for="subject">Θέμα:</label>
+              <label for="subject"><?= t('contact.subject') ?></label>
               <input type="text" id="subject" name="subject" required placeholder="Θέμα μηνύματος" />
             </div>
 
             <div class="form-group">
-              <label for="message">Μήνυμα:</label>
+              <label for="message"><?= t('contact.message') ?></label>
               <textarea id="message" name="message" rows="5" required placeholder="Περιγράψτε το ερώτημα ή το σχόλιό σας"></textarea>
             </div>
 
-            <button type="submit" class="btn-primary">Αποστολή Μηνύματος</button>
+            <button type="submit" class="btn-primary"><?= t('contact.send') ?></button>
           </form>
         </div>
       </div>
