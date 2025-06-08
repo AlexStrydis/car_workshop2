@@ -52,13 +52,12 @@ if (!function_exists('renderCalendar')) {
 </head>
 <body>
 
-  <!-- Hero Image -->
-  <section class="hero-section dashboard-hero">
+  <!-- Hero Image with dashboard content -->
+  <section class="hero-background dashboard-hero">
     <div class="hero-overlay"></div>
-  </section>
 
-  <!-- Δίπτυχος Layout: Sidebar αριστερά, Main δεξιά -->
-  <div class="dashboard-container">
+    <!-- Δίπτυχος Layout: Sidebar αριστερά, Main δεξιά -->
+    <div class="dashboard-container">
 
     <!-- SIDEBAR κουτί με τα μεγάλα κουμπιά -->
     <aside class="dashboard-sidebar">
@@ -82,6 +81,7 @@ if (!function_exists('renderCalendar')) {
     </main>
 
   </div>
+  </section>
 
 </body>
 </html>
