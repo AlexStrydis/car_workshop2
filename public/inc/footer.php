@@ -1,7 +1,7 @@
 <?php
 // public/inc/footer.php
 ?>
-<section class="site-footer hero-background">
+<footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-col">
         <h4>Επικοινωνία</h4>
@@ -34,4 +34,4 @@
     <div class="footer-bottom text-center">
       &copy; 2025 Car Workshop – All Rights Reserved.
     </div>
-  </section>
+  </footer>
