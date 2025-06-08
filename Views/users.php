@@ -49,9 +49,12 @@ $filterLabel = !empty($filters)
   </style>
 </head>
 <body>
-  <h1>Users (<?php echo htmlspecialchars($filterLabel); ?>)</h1>
+  <?php include __DIR__ . '/../public/inc/header.php'; ?>
+  <section class="hero-background">
+    <div class="container">
+      <h1>Users (<?php echo htmlspecialchars($filterLabel); ?>)</h1>
 
-  <p><a href="dashboard.php">Dashboard</a></p>
+      <p><a href="dashboard.php">Dashboard</a></p>
 
   <?php if (!empty($_SESSION['success'])): ?>
     <p style="color:green"><?php echo htmlspecialchars($_SESSION['success']); ?></p>
@@ -89,7 +92,7 @@ $filterLabel = !empty($filters)
     <button type="button" onclick="window.location='users.php';">Clear All Filters</button>
   </form>
   
-  <table border="1" cellpadding="5">
+  <table class="data-table">
     <tr>
       <th>ID</th>
       <th>Username</th>
@@ -122,5 +125,8 @@ $filterLabel = !empty($filters)
       </tr>
     <?php endforeach; ?>
   </table>
+    </div>
+  </section>
+  <?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>

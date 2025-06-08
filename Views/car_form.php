@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
-  <title>New Car</title>
+  <title>Νέο Αυτοκίνητο</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <p><button type="button" onclick="history.back()">← Επιστροφή</button></p>
+  <?php include __DIR__ . '/../public/inc/header.php'; ?>
+  <section class="hero-background">
+    <div class="container">
+      <p><button type="button" onclick="history.back()">← Επιστροφή</button></p>
 
   <?php if (!empty($_SESSION['error'])): ?>
     <p style="color:red"><?= htmlspecialchars($_SESSION['error']) ?></p>
     <?php unset($_SESSION['error']); ?>
   <?php endif; ?>
 
-  <form method="post" action="create_car.php">
+      <form method="post" action="create_car.php" class="task-form">
     <input type="hidden" name="_csrf" value="<?= htmlspecialchars($token) ?>">
 
     <!-- Serial Number -->
@@ -90,5 +93,8 @@
     <button type="submit">Create Car</button>
     <button type="button" onclick="history.back()">Cancel</button>
   </form>
+    </div>
+  </section>
+  <?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>

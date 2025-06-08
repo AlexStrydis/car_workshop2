@@ -2,17 +2,22 @@
 <html lang="el">
 <head>
   <link rel="stylesheet" href="css/style.css">
-
   <meta charset="UTF-8">
   <title>Dashboard Μηχανικού</title>
 </head>
 <body>
-  <!-- Nav buttons -->
-  <div class="dashboard-nav" style="margin: 1em 0;">
-    <a href="appointments_mechanic.php"><button>Διαχείριση Ραντεβού</button></a>
-    <a href="all_tasks.php"><button>Εργασίες Μου</button></a>
-    <a href="new_task.php"><button>Νέα Εργασία</button></a>
-  </div>
-
+  <?php include __DIR__ . '/../public/inc/header.php'; ?>
+  <section class="hero-background dashboard-hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <h3 class="welcome-message">Καλωσήρθες, <?= htmlspecialchars($username) ?>!</h3>
+      <div class="dashboard-actions-box">
+        <button onclick="location.href='appointments_mechanic.php'">Διαχείριση Ραντεβού</button>
+        <button onclick="location.href='all_tasks.php'">Εργασίες Μου</button>
+        <button onclick="location.href='new_task.php'">Νέα Εργασία</button>
+      </div>
+    </div>
+  </section>
+  <?php include __DIR__ . '/../public/inc/footer.php'; ?>
 </body>
 </html>
