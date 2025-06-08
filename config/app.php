@@ -50,3 +50,6 @@ function requireRole(string ...$roles): void {
         exit('Access denied');
     }
 }
+
+require_once __DIR__ . '/lang.php';
+
